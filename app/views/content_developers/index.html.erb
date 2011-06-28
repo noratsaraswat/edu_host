@@ -1,0 +1,38 @@
+<% if user_signed_in? %>
+Signed in as <%= current_user.email %>. Not you?
+<%=link_to "Sign Out",destroy_user_session_path %>
+<% else %>
+<%=  link_to "Sign up",new_user_registration_path %> or <%= link_to "Sign_in", new_user_session_path %>
+<% end %>
+
+<h1>Home Page </h1>
+<h3>Educrasy </h3>
+
+
+<%=link_to "Administrators",{:action=>"index", :controller=>"administrators"} %>
+<%=link_to "Teachers",{:action=>"index", :controller=>"teachers"} %>
+<%=link_to "Students",{:action=>"index", :controller=>"students"} %>
+<%=link_to "Content Developers",{:action=>"index", :controller=>"content_developers"} %> <br />
+<h1>Listing content_developers</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @content_developers.each do |content_developer| %>
+  <tr>
+    <td><%= content_developer.name %></td>
+    <td><%= link_to 'Show', content_developer %></td>
+    <td><%= link_to 'Edit', edit_content_developer_path(content_developer) %></td>
+    <td><%= link_to 'Destroy', content_developer, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Content developer', new_content_developer_path %>

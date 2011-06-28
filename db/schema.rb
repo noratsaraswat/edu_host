@@ -10,11 +10,40 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110624133922) do
+ActiveRecord::Schema.define(:version => 20110628114951) do
+
+  create_table "administrators", :force => true do |t|
+    t.string   "name"
+    t.integer  "lessionID"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "content_developers", :force => true do |t|
+    t.string   "name"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
 
   create_table "homes", :force => true do |t|
     t.string   "name"
     t.string   "place"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "students", :force => true do |t|
+    t.string   "name"
+    t.string   "classname"
+    t.string   "standard"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "teachers", :force => true do |t|
+    t.integer  "lessionID"
+    t.string   "classname"
+    t.integer  "classID"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -32,6 +61,7 @@ ActiveRecord::Schema.define(:version => 20110624133922) do
     t.string   "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "role"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

@@ -1,4 +1,12 @@
 Educrasy::Application.routes.draw do
+  resources :content_developers
+
+  resources :students
+
+  resources :teachers
+
+  resources :administrators
+
   resources :homes
 
   devise_for :users

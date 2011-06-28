@@ -1,0 +1,42 @@
+<% if user_signed_in? %>
+Signed in as <%= current_user.email %>. Not you?
+<%=link_to "Sign Out",destroy_user_session_path %>
+<% else %>
+<%=  link_to "Sign up",new_user_registration_path %> or <%= link_to "Sign_in", new_user_session_path %>
+<% end %>
+
+<h1>Home Page </h1>
+<h3>Educrasy </h3>
+
+
+<%=link_to "Administrators",{:action=>"index", :controller=>"administrators"} %>
+<%=link_to "Teachers",{:action=>"index", :controller=>"teachers"} %>
+<%=link_to "Students",{:action=>"index", :controller=>"students"} %>
+<%=link_to "Content Developers",{:action=>"index", :controller=>"content_developers"} %> <br />
+<h1>Listing teachers</h1>
+
+<table>
+  <tr>
+    <th>Lessionid</th>
+    <th>Classname</th>
+    <th>Classid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+<% @teachers.each do |teacher| %>
+  <tr>
+    <td><%= teacher.lessionID %></td>
+    <td><%= teacher.classname %></td>
+    <td><%= teacher.classID %></td>
+    <td><%= link_to 'Show', teacher %></td>
+    <td><%= link_to 'Edit', edit_teacher_path(teacher) %></td>
+    <td><%= link_to 'Destroy', teacher, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Teacher', new_teacher_path %>

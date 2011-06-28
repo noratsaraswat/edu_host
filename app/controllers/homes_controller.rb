@@ -1,4 +1,7 @@
 class HomesController < ApplicationController
+  before_filter :authenticate_user!,:except=>[:index]
+  load_and_authorize_resource :except=> 'index'
+   
   # GET /homes
   # GET /homes.xml
   def index
@@ -13,7 +16,7 @@ class HomesController < ApplicationController
   # GET /homes/1
   # GET /homes/1.xml
   def show
-    @home = Home.find(params[:id])
+    #@home = Home.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +27,7 @@ class HomesController < ApplicationController
   # GET /homes/new
   # GET /homes/new.xml
   def new
-    @home = Home.new
+    #@home = Home.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +37,13 @@ class HomesController < ApplicationController
 
   # GET /homes/1/edit
   def edit
-    @home = Home.find(params[:id])
+   # @home = Home.find(params[:id])
   end
 
   # POST /homes
   # POST /homes.xml
   def create
-    @home = Home.new(params[:home])
+    #@home = Home.new(params[:home])
 
     respond_to do |format|
       if @home.save
@@ -56,7 +59,7 @@ class HomesController < ApplicationController
   # PUT /homes/1
   # PUT /homes/1.xml
   def update
-    @home = Home.find(params[:id])
+    #@home = Home.find(params[:id])
 
     respond_to do |format|
       if @home.update_attributes(params[:home])
@@ -72,7 +75,7 @@ class HomesController < ApplicationController
   # DELETE /homes/1
   # DELETE /homes/1.xml
   def destroy
-    @home = Home.find(params[:id])
+    #@home = Home.find(params[:id])
     @home.destroy
 
     respond_to do |format|
