@@ -1,0 +1,28 @@
+<h1>Listing student_details</h1>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Classname</th>
+    <th>Standard</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+
+ <%=link_to "Lesson or questionnaire  page",{:action=>"index", :controller=>"student_lesson_page"} %>
+<% @student_details.each do |student_detail| %>
+  <tr>
+    <td><%= student_detail.name %></td>
+    <td><%= student_detail.classname %></td>
+    <td><%= student_detail.standard %></td>
+    <td><%= link_to 'Show', student_detail %></td>
+    <td><%= link_to 'Edit', edit_student_detail_path(student_detail) %></td>
+    <td><%= link_to 'Destroy', student_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Student detail', new_student_detail_path %>

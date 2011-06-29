@@ -1,4 +1,24 @@
 Educrasy::Application.routes.draw do
+  get "contact/index"
+
+  get "compleated/index"
+
+  get "student_lesson_page/index"
+
+  resources :student_details
+
+  get "class_performance_page/index"
+
+  get "teacher_lesson_details/index"
+
+  resources :teacher_details
+
+  resources :questionnaires
+
+  resources :lesson_pages
+
+  resources :admin_people
+
   resources :content_developers
 
   resources :students

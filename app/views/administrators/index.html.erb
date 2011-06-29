@@ -4,12 +4,13 @@ Signed in as <%= current_user.email %>. Not you?
 <% else %>
 <%=  link_to "Sign up",new_user_registration_path %> or <%= link_to "Sign_in", new_user_session_path %>
 <% end %>
-
+<br />
+<%=link_to "Contact",{:action=>"index", :controller=>"contact"} %>
 <h1>Home Page </h1>
 <h3>Educrasy </h3>
 
 
-<%=link_to "Administrators",{:action=>"index", :controller=>"administrators"} %>
+<%=link_to "Administrators",{:action=>"index", :controller=>"administrators"} %><%=link_to "Sign in",{:action=>"index", :controller=>"admin_people"} %>
 <%=link_to "Teachers",{:action=>"index", :controller=>"teachers"} %>
 <%=link_to "Students",{:action=>"index", :controller=>"students"} %>
 <%=link_to "Content Developers",{:action=>"index", :controller=>"content_developers"} %> <br />

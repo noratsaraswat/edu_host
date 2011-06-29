@@ -1,0 +1,28 @@
+<h1>Listing teacher_details</h1>
+
+<table>
+  <tr>
+    <th>Lessionid</th>
+    <th>Classname</th>
+    <th>Classid</th>
+    <th></th>
+    <th></th>
+    <th></th>
+  </tr>
+<%=link_to "Teacher Lesson Page",{:action=>"index", :controller=>"teacher_lesson_details"} %>
+  <%=link_to "Class Performance Page",{:action=>"index", :controller=>"class_performance_page"} %>
+<% @teacher_details.each do |teacher_detail| %>
+  <tr>
+    <td><%= teacher_detail.lessionID %></td>
+    <td><%= teacher_detail.classname %></td>
+    <td><%= teacher_detail.classID %></td>
+    <td><%= link_to 'Show', teacher_detail %></td>
+    <td><%= link_to 'Edit', edit_teacher_detail_path(teacher_detail) %></td>
+    <td><%= link_to 'Destroy', teacher_detail, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New Teacher detail', new_teacher_detail_path %>
