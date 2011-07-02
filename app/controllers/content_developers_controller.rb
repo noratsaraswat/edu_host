@@ -1,5 +1,5 @@
 class ContentDevelopersController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   load_and_authorize_resource :except=> 'index'
   # GET /content_developers
   # GET /content_developers.xml

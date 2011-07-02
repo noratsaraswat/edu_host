@@ -44,7 +44,7 @@ class TeacherDetailsController < ApplicationController
 
     respond_to do |format|
       if @teacher_detail.save
-        format.html { redirect_to(@teacher_detail, :notice => 'Teacher detail was successfully created.') }
+        format.html { redirect_to(@teacher_detail,:notice => 'Teacher detail was successfully created.') }
         format.xml  { render :xml => @teacher_detail, :status => :created, :location => @teacher_detail }
       else
         format.html { render :action => "new" }

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110629162251) do
+ActiveRecord::Schema.define(:version => 20110702072230) do
 
   create_table "admin_people", :force => true do |t|
     t.string   "name"
@@ -68,6 +68,11 @@ ActiveRecord::Schema.define(:version => 20110629162251) do
     t.string   "name"
     t.string   "classname"
     t.string   "standard"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "supports", :force => true do |t|
     t.datetime "created_at"
     t.datetime "updated_at"
   end

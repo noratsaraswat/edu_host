@@ -4,12 +4,18 @@ class AdministratorsController < ApplicationController
   # GET /administrators
   # GET /administrators.xml
   def index
+
+    if current_user.role=='admin'
+    redirect_to(:controller => "admin_people",:action => "index")
+    return
+   end
     @administrators = Administrator.all
 
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @administrators }
     end
+  
   end
 
   # GET /administrators/1

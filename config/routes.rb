@@ -1,4 +1,6 @@
 Educrasy::Application.routes.draw do
+  resources :supports, :only => [:new, :create]
+
   get "contact/index"
 
   get "compleated/index"

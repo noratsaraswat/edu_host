@@ -5,12 +5,15 @@ class HomesController < ApplicationController
   # GET /homes
   # GET /homes.xml
   def index
+   
+    
     @homes = Home.all
-
+    
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @homes }
     end
+    
   end
 
   # GET /homes/1

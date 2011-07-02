@@ -1,0 +1,54 @@
+/* 
+    Document   : educrasy
+    Created on : 01-Jul-2011, 14:42:12
+    Author     : john
+    Description:
+        Purpose of the stylesheet follows.
+*/
+
+/* 
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+root { 
+    display: block;
+}
+
+#header {
+
+    text-align: center;
+    font-size: 28px;
+    height: 80px;
+
+}
+
+#header2 {
+    font-size: 20px;
+    height: 100px;
+
+}
+
+#logo {
+    height: 70px;
+}
+.textsize {
+    font-size: 20px;
+}
+#mainlinks {
+    font-size: 25px;
+    height: 80px;
+}
+#video {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    height: 150px;
+}
+
+#signup {
+    text-align: center;
+}
+#contact {
+    padding-top: 30px;
+}

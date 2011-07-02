@@ -1,5 +1,5 @@
 class TeachersController < ApplicationController
-  before_filter :authenticate_user!
+  #before_filter :authenticate_user!
   load_and_authorize_resource :except=> 'index'
   # GET /teachers
   # GET /teachers.xml
