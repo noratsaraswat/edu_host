@@ -4,7 +4,7 @@ ActionMailer::Base.smtp_settings= {
 :port 		=>587,
 :domain =>"klairvoyant.com",
 :user_name=> "john@klairvoyant.com",
-:password =>"billjo22",
+:password =>"",
 :authentication=>"plain"
 
 }
