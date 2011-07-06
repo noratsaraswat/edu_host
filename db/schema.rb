@@ -10,11 +10,18 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110704072920) do
+ActiveRecord::Schema.define(:version => 20110706145459) do
 
   create_table "admin_people", :force => true do |t|
-    t.string   "name"
+    t.integer  "userID"
     t.integer  "lessonID"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "admin_people_lessons", :id => false, :force => true do |t|
+    t.integer  "admin_person_id"
+    t.integer  "lesson_id"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -41,9 +48,14 @@ ActiveRecord::Schema.define(:version => 20110704072920) do
 
   create_table "lesson_pages", :force => true do |t|
     t.integer  "lessonID"
-    t.integer  "orderNo"
     t.string   "datasource"
     t.boolean  "datatype"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "lessons", :force => true do |t|
+    t.string   "lessonName"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -107,6 +119,7 @@ ActiveRecord::Schema.define(:version => 20110704072920) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.string   "role"
+    t.string   "name"
   end
 
   add_index "users", ["email"], :name => "index_users_on_email", :unique => true

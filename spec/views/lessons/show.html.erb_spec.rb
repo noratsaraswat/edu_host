@@ -1,10 +1,10 @@
 require 'spec_helper'
 
-describe "admin_people/show.html.erb" do
+describe "lessons/show.html.erb" do
   before(:each) do
-    @admin_person = assign(:admin_person, stub_model(AdminPerson,
-      :userID => 1,
-      :lessonID => 1
+    @lesson = assign(:lesson, stub_model(Lesson,
+      :lessonID => 1,
+      :lessonName => "Lesson Name"
     ))
   end
 
@@ -13,6 +13,6 @@ describe "admin_people/show.html.erb" do
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     rendered.should match(/1/)
     # Run the generator again with the --webrat flag if you want to use webrat matchers
-    rendered.should match(/1/)
+    rendered.should match(/Lesson Name/)
   end
 end

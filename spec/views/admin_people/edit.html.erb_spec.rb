@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "admin_people/edit.html.erb" do
   before(:each) do
     @admin_person = assign(:admin_person, stub_model(AdminPerson,
-      :name => "MyString",
+      :userID => 1,
       :lessonID => 1
     ))
   end
@@ -13,7 +13,7 @@ describe "admin_people/edit.html.erb" do
 
     # Run the generator again with the --webrat flag if you want to use webrat matchers
     assert_select "form", :action => admin_people_path(@admin_person), :method => "post" do
-      assert_select "input#admin_person_name", :name => "admin_person[name]"
+      assert_select "input#admin_person_userID", :name => "admin_person[userID]"
       assert_select "input#admin_person_lessonID", :name => "admin_person[lessonID]"
     end
   end

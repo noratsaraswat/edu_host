@@ -5,4 +5,5 @@ class Notifier < ActionMailer::Base
 	         :from => sender.email,
 	         :subject => "Query")
 	 end
+
 end
