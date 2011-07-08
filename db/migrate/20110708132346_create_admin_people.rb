@@ -1,7 +1,7 @@
 class CreateAdminPeople < ActiveRecord::Migration
   def self.up
     create_table :admin_people do |t|
-      t.integer :UserID
+      t.integer :userID
       t.integer :lessonID
 
       t.timestamps
