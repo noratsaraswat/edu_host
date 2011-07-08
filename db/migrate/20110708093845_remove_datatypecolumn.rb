@@ -4,5 +4,6 @@ class RemoveDatatypecolumn < ActiveRecord::Migration
   end
 
   def self.down
+    add_column :lesson_pages, :datatype
   end
 end

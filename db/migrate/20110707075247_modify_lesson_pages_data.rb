@@ -6,5 +6,7 @@ class ModifyLessonPagesData < ActiveRecord::Migration
   end
 
   def self.down
+    change_column(:lesson_pages, :dataID, :string)
+    rename_column(:lesson_pages, :dataID, :datasource )
   end
 end

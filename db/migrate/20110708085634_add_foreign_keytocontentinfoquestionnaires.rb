@@ -5,5 +5,7 @@ class AddForeignKeytocontentinfoquestionnaires < ActiveRecord::Migration
   end
 
   def self.down
+    remove_column :content_infos, :lesson_page_id, :integer
+    remove_column :questionnaires, :lesson_page_id, :integer
   end
 end

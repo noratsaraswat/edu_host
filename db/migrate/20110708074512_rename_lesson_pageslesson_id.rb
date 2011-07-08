@@ -4,5 +4,6 @@ class RenameLessonPageslessonId < ActiveRecord::Migration
   end
 
   def self.down
+    rename_column(:lesson_pages, :lesson_id,:lessonID)
   end
 end

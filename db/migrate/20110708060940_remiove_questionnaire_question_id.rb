@@ -4,5 +4,6 @@ class RemioveQuestionnaireQuestionId < ActiveRecord::Migration
   end
 
   def self.down
+    add_column :questionnaires, :questionID
   end
 end
