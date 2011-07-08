@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110706173201) do
+ActiveRecord::Schema.define(:version => 20110708093845) do
 
   create_table "admin_people", :force => true do |t|
     t.integer  "userID"
@@ -33,10 +33,32 @@ ActiveRecord::Schema.define(:version => 20110706173201) do
     t.datetime "updated_at"
   end
 
+  create_table "choices", :force => true do |t|
+    t.integer  "QuestionID"
+    t.string   "ChoiceAnswers"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "content_data", :force => true do |t|
+    t.string   "name"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
   create_table "content_developers", :force => true do |t|
     t.string   "name"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "content_infos", :force => true do |t|
+    t.string   "name"
+    t.string   "path"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lesson_page_id"
   end
 
   create_table "homes", :force => true do |t|
@@ -47,23 +69,40 @@ ActiveRecord::Schema.define(:version => 20110706173201) do
   end
 
   create_table "lesson_pages", :force => true do |t|
-    t.integer  "lessonID"
-    t.string   "datasource"
-    t.boolean  "datatype"
+    t.integer  "lesson_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "content_info_id"
+    t.integer  "questionnaire_id"
   end
 
-  create_table "lessons", :force => true do |t|
-    t.string   "lessonName"
+  create_table "lessons", :id => false, :force => true do |t|
+    t.integer  "id",                         :null => false
+    t.string   "lessonName", :default => "", :null => false
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "questionnaires", :force => true do |t|
-    t.integer  "questionnaireID"
     t.string   "questionnaireName"
-    t.integer  "questionID"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "lesson_page_id"
+  end
+
+  create_table "questions", :force => true do |t|
+    t.string   "question"
+    t.string   "image"
+    t.string   "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+  end
+
+  create_table "quests", :force => true do |t|
+    t.integer  "questionnaireID"
+    t.string   "question"
+    t.string   "image"
+    t.string   "answer"
     t.datetime "created_at"
     t.datetime "updated_at"
   end

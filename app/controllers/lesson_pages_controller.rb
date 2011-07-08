@@ -44,6 +44,10 @@ class LessonPagesController < ApplicationController
 
     respond_to do |format|
       if @lesson_page.save
+        #format.html { render :controller=>"lessons",:action => "new" }
+        
+        
+
         format.html { redirect_to(@lesson_page, :notice => 'Lesson page was successfully created.') }
         format.xml  { render :xml => @lesson_page, :status => :created, :location => @lesson_page }
       else

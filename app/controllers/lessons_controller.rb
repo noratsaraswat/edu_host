@@ -60,7 +60,7 @@ class LessonsController < ApplicationController
          @adminpeoplelessons.lesson_id=@lesson.id
          @adminpeoplelessons.admin_person_id=@admin.id
          @adminpeoplelessons.save
-         
+        #format.html { render :action => "new" }
         format.html { redirect_to(@lesson, :notice => 'Lesson was successfully created.') }
         format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
       else

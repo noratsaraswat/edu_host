@@ -1,31 +1,25 @@
 
-<br />
-<br />
-<br />
-<h3> welcome <%= current_user.name %></h3>
+  <h3> welcome <%=  current_user.name %></h3>
 
-<h3> Lessons</h3>
+  <h3>Lessons</h3>
 
+<% results=AdminPerson.find(:all,:conditions=>"userID='#{current_user.id}'") %>
 
-<br />
-<br />
-<% results= AdminPerson.find(:all,:conditions=>"userID='#{current_user.id}'")%>
+<% results.each do |admin| %>
+  <% admin.lessons.each do |lesson| %>
+      <h2><%=lesson.lessonName %></h2>
+      <h3> contents</h3>
 
-<% results.each do | admin| %>
+           <% lesson.lesson_pages.each do |lessonpage| %>
+              
 
-<% admin.lessons.each do |lesson| %>
-<h4>   <%= lesson.lessonName %> </h4>
+               <%= lessonpage.content_info_id? ? lessonpage.content_info.name : lessonpage.questionnaire_id? ? lessonpage.questionnaire.questionnaireName : "" %> <br />
 
+           <% end %>
+
+           
+
+  <%end%>
 <%end%>
 
-<%end%>
-
-
-
-
-<%=link_to "Create New Lesson",{:action=>"new", :controller=>"lessons"} %>
-
-
-
-
-
+<%= link_to "Create New Lesson",{:action=>"new",:controller=>"lessons"}%>

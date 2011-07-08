@@ -1,5 +1,8 @@
-<h1>New lesson_page</h1>
+<h1>LessonContent Data</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Back', lesson_pages_path %>
+
+<%=link_to "Create New Content",{:action=>"new", :controller=>"content_infos"} %> <br />
+
+<%=link_to "Back",{:action=>"new", :controller=>"lessons"} %>

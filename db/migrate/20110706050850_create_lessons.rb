@@ -1,9 +1,8 @@
 class CreateLessons < ActiveRecord::Migration
   def self.up
     create_table :lessons do |t|
-      t.integer :lessonID
+      t.integer :lessonID #removed
       t.string :lessonName
-
       t.timestamps
     end
   end

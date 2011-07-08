@@ -13,10 +13,10 @@
 <%=link_to "Questionnaire Page",{:action=>"index", :controller=>"questionnaires"} %>
 <% @lesson_pages.each do |lesson_page| %>
   <tr>
-    <td><%= lesson_page.lessonID %></td>
-    <td><%= lesson_page.orderNo %></td>
-    <td><%= lesson_page.datasource %></td>
-    <td><%= lesson_page.datatype %></td>
+    <td><%= lesson_page.lesson_id %></td>
+    
+    
+    
     <td><%= link_to 'Show', lesson_page %></td>
     <td><%= link_to 'Edit', edit_lesson_page_path(lesson_page) %></td>
     <td><%= link_to 'Destroy', lesson_page, :confirm => 'Are you sure?', :method => :delete %></td>

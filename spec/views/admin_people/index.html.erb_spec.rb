@@ -4,11 +4,11 @@ describe "admin_people/index.html.erb" do
   before(:each) do
     assign(:admin_people, [
       stub_model(AdminPerson,
-        :userID => 1,
+        :UserID => 1,
         :lessonID => 1
       ),
       stub_model(AdminPerson,
-        :userID => 1,
+        :UserID => 1,
         :lessonID => 1
       )
     ])

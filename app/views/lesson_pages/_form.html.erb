@@ -12,18 +12,18 @@
   <% end %>
 
   <div class="field">
-    <%= f.label :lessonID %><br />
-    <%= f.text_field :lessonID %>
+    <%= f.label "Lesson Name" %><br />
+    <%= f.select(:lesson_id,  Lesson.find(:all).collect {|c| [ c.lessonName, c.id ] })%>
+
   </div>
    <div class="field">
-    <%= f.label :datasource %><br />
-    <%= f.text_field :datasource %>
+    <%= f.label "Select Content Data Name" %><br />
+    <%= f.select(:content_info_id,ContentInfo.find(:all).collect {|c| [ c.name, c.id ] })%>
   </div>
-  <div class="field">
-    <%= f.label :datatype %><br />
-    <%= f.check_box :datatype %>
-  </div>
+
+  
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Add Content"%>
   </div>
 <% end %>
+

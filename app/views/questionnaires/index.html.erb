@@ -2,7 +2,7 @@
 
 <table>
   <tr>
-    <th>Questionnaireid</th>
+    
     <th>Questionnairename</th>
     <th>Questionid</th>
     <th></th>
@@ -12,9 +12,9 @@
 Add Question
 <% @questionnaires.each do |questionnaire| %>
   <tr>
-    <td><%= questionnaire.questionnaireID %></td>
+    
     <td><%= questionnaire.questionnaireName %></td>
-    <td><%= questionnaire.questionID %></td>
+    
     <td><%= link_to 'Show', questionnaire %></td>
     <td><%= link_to 'Edit', edit_questionnaire_path(questionnaire) %></td>
     <td><%= link_to 'Destroy', questionnaire, :confirm => 'Are you sure?', :method => :delete %></td>

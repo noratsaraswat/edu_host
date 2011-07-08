@@ -1,4 +1,18 @@
 Educrasy::Application.routes.draw do
+  resources :admin_people
+
+  resources :choices
+
+  resources :quests
+
+  get "lesson_pages_questionnaire/index"
+
+  get "lesson_pages_questionnaire/edit"
+
+  get "lesson_pages_questionnaire/new"
+
+  resources :content_infos
+
   resources :lessons
 
   resources :supports, :only => [:new, :create]
@@ -20,8 +34,6 @@ Educrasy::Application.routes.draw do
   resources :questionnaires
 
   resources :lesson_pages
-
-  resources :admin_people
 
   resources :content_developers
 

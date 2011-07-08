@@ -2,24 +2,17 @@
 
 <p>
   <b>Lessonid:</b>
-  <%= @lesson_page.lessonID %>
-</p>
-
-<p>
-  <b>Orderno:</b>
-  <%= @lesson_page.orderNo %>
-</p>
-
-<p>
-  <b>Datasource:</b>
-  <%= @lesson_page.datasource %>
-</p>
-
-<p>
-  <b>Datatype:</b>
-  <%= @lesson_page.datatype %>
+  <%= @lesson_page.lesson_id %>
 </p>
 
 
-<%= link_to 'Edit', edit_lesson_page_path(@lesson_page) %> |
-<%= link_to 'Back', lesson_pages_path %>
+
+
+
+
+
+<%= link_to 'Edit', edit_lesson_page_path(@lesson_page) %> <br />
+
+<%=link_to "Add More Content Data",{:action=>"new", :controller=>"lesson_pages"} %> <br />
+<%=link_to "Add More Questionnaire Data",{:action=>"new", :controller=>"lesson_pages_questionnaire"} %><br />
+<%=link_to "Back to Lesson Page",{:action=>"new", :controller=>"lessons"} %>

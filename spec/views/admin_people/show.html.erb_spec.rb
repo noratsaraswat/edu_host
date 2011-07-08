@@ -3,7 +3,7 @@ require 'spec_helper'
 describe "admin_people/show.html.erb" do
   before(:each) do
     @admin_person = assign(:admin_person, stub_model(AdminPerson,
-      :userID => 1,
+      :UserID => 1,
       :lessonID => 1
     ))
   end

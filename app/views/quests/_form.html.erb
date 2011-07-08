@@ -1,0 +1,38 @@
+<%= form_for(@quest) do |f| %>
+  <% if @quest.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@quest.errors.count, "error") %> prohibited this quest from being saved:</h2>
+
+      <ul>
+      <% @quest.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label "Questionnaire Name" %><br />
+    <%= f.select(:questionnaireID, Questionnaire.find(:all).collect {|c| [ c.questionnaireName, c.id ] })%>
+  </div>
+  <div class="field">
+    <%= f.label "Question" %><br />
+    <%= f.text_field :question %>
+  </div>
+  <div class="field">
+    <%= f.label "Select Image" %><br />
+    <%= f.file_field :image %>
+  </div>
+      
+  <div class="field">
+    <%= f.label "Provide Correct Answer" %><br />
+    <%= f.text_field :answer %>
+  </div>
+
+   
+    <%=link_to "Add choice Answers",{:action=>"new", :controller=>"choices"} %>
+    
+  <div class="actions">
+    <%= f.submit "Create Question"%>
+  </div>
+<% end %>
