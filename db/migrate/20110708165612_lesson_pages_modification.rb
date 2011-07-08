@@ -1,7 +1,6 @@
 class LessonPagesModification < ActiveRecord::Migration
   def self.up
     remove_column :lesson_pages, :lessonID
-    remove_column :lesson_pages, :OrderNo
     remove_column :lesson_pages, :datasource
     remove_column :lesson_pages, :datatype
     add_column :lesson_pages, :lesson_id, :integer
