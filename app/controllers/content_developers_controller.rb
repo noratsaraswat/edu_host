@@ -1,9 +1,15 @@
 class ContentDevelopersController < ApplicationController
-  #before_filter :authenticate_user!
+  before_filter :authenticate_user!
   load_and_authorize_resource :except=> 'index'
+
   # GET /content_developers
   # GET /content_developers.xml
   def index
+    if current_user.role=='admin'
+    #redirect_to(:controller => "admin_people",:action => "index")
+    redirect_to(:controller => "developers",:action =>"index")
+    return
+    end
     @content_developers = ContentDeveloper.all
 
     respond_to do |format|

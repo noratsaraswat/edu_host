@@ -1,8 +1,10 @@
 class AdminPeopleController < ApplicationController
+  before_filter :authenticate_user!
+  load_and_authorize_resource :except=> 'index'
   # GET /admin_people
   # GET /admin_people.xml
   def index
-    @admin_people = AdminPerson.all
+    #@admin_people = AdminPerson.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -13,7 +15,7 @@ class AdminPeopleController < ApplicationController
   # GET /admin_people/1
   # GET /admin_people/1.xml
   def show
-    @admin_person = AdminPerson.find(params[:id])
+    #@admin_person = AdminPerson.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -24,7 +26,7 @@ class AdminPeopleController < ApplicationController
   # GET /admin_people/new
   # GET /admin_people/new.xml
   def new
-    @admin_person = AdminPerson.new
+    #@admin_person = AdminPerson.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -34,13 +36,13 @@ class AdminPeopleController < ApplicationController
 
   # GET /admin_people/1/edit
   def edit
-    @admin_person = AdminPerson.find(params[:id])
+    #@admin_person = AdminPerson.find(params[:id])
   end
 
   # POST /admin_people
   # POST /admin_people.xml
   def create
-    @admin_person = AdminPerson.new(params[:admin_person])
+    #@admin_person = AdminPerson.new(params[:admin_person])
 
     respond_to do |format|
       if @admin_person.save
@@ -56,7 +58,7 @@ class AdminPeopleController < ApplicationController
   # PUT /admin_people/1
   # PUT /admin_people/1.xml
   def update
-    @admin_person = AdminPerson.find(params[:id])
+    #@admin_person = AdminPerson.find(params[:id])
 
     respond_to do |format|
       if @admin_person.update_attributes(params[:admin_person])
@@ -72,7 +74,7 @@ class AdminPeopleController < ApplicationController
   # DELETE /admin_people/1
   # DELETE /admin_people/1.xml
   def destroy
-    @admin_person = AdminPerson.find(params[:id])
+    #@admin_person = AdminPerson.find(params[:id])
     @admin_person.destroy
 
     respond_to do |format|

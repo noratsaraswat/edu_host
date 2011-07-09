@@ -46,20 +46,23 @@ class LessonsController < ApplicationController
   def create
     #@lesson = Lesson.new(params[:lesson])
 
-    @adminpeoplelessons =AdminPeopleLessons.new
-    @admin=AdminPerson.new
+    #R@adminpeoplelessons =AdminPeopleLessons.new
+    #R@admin=AdminPerson.new
+
+    @developerslessons =DevelopersLessons.new
+    @developer=Developer.new
     
     
    
 
     respond_to do |format|
       if @lesson.save
-         @admin.lessonID=@lesson.id
-         @admin.userID=current_user.id
-         @admin.save
-         @adminpeoplelessons.lesson_id=@lesson.id
-         @adminpeoplelessons.admin_person_id=@admin.id
-         @adminpeoplelessons.save
+         @developer.lessonID=@lesson.id
+         @developer.userID=current_user.id
+         @developer.save
+         @developerslessons.lesson_id=@lesson.id
+         @developerslessons.developer_id=@developer.id
+         @developerslessons.save
         #format.html { render :action => "new" }
         format.html { redirect_to(@lesson, :notice => 'Lesson was successfully created.') }
         format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }

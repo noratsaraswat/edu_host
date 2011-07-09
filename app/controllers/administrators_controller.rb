@@ -6,9 +6,10 @@ class AdministratorsController < ApplicationController
   def index
 
     if current_user.role=='admin'
-    redirect_to(:controller => "admin_people",:action => "index")
+    #redirect_to(:controller => "admin_people",:action => "index")
+    redirect_to(:controller =>"developers",:action =>"index")
     return
-   end
+    end
     @administrators = Administrator.all
 
     respond_to do |format|
