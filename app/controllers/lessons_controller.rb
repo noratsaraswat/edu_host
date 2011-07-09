@@ -15,7 +15,7 @@ class LessonsController < ApplicationController
   # GET /lessons/1
   # GET /lessons/1.xml
   def show
-    #@lesson = Lesson.find(params[:id])
+    @lesson = Lesson.find(params[:id])
 
     respond_to do |format|
       format.html # show.html.erb
@@ -26,7 +26,7 @@ class LessonsController < ApplicationController
   # GET /lessons/new
   # GET /lessons/new.xml
   def new
-    #@lesson = Lesson.new
+    @lesson = Lesson.new
     
 
     respond_to do |format|
@@ -37,14 +37,14 @@ class LessonsController < ApplicationController
 
   # GET /lessons/1/edit
   def edit
-    #@lesson = Lesson.find(params[:id])
+    @lesson = Lesson.find(params[:id])
     
   end
 
   # POST /lessons
   # POST /lessons.xml
   def create
-    #@lesson = Lesson.new(params[:lesson])
+    @lesson = Lesson.new(params[:lesson])
 
     #R@adminpeoplelessons =AdminPeopleLessons.new
     #R@admin=AdminPerson.new
@@ -76,7 +76,7 @@ class LessonsController < ApplicationController
   # PUT /lessons/1
   # PUT /lessons/1.xml
   def update
-    #@lesson = Lesson.find(params[:id])
+    @lesson = Lesson.find(params[:id])
 
     respond_to do |format|
       if @lesson.update_attributes(params[:lesson])
@@ -92,7 +92,7 @@ class LessonsController < ApplicationController
   # DELETE /lessons/1
   # DELETE /lessons/1.xml
   def destroy
-    #@lesson = Lesson.find(params[:id])
+    @lesson = Lesson.find(params[:id])
     @lesson.destroy
 
     respond_to do |format|
