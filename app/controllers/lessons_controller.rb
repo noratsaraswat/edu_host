@@ -63,12 +63,11 @@ class LessonsController < ApplicationController
          @developerslessons.lesson_id=@lesson.id
          @developerslessons.developer_id=@developer.id
          @developerslessons.save
-        #format.html { render :action => "new" }
-        format.html { redirect_to(@lesson, :notice => 'Lesson was successfully created.') }
-        format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
+         format.html { redirect_to(:controller =>"developers",:action =>"index") }
+         format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
       else
-        format.html { render :action => "new" }
-        format.xml  { render :xml => @lesson.errors, :status => :unprocessable_entity }
+         format.html{ render :action => "new"}
+         format.xml  { render :xml => @lesson.errors, :status => :unprocessable_entity }
       end
     end
   end
