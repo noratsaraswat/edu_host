@@ -2,8 +2,7 @@
 
 <h3> welcome <%=  current_user.name %></h3>
 
-<% results=Developer.find(:all)%>
-
+<% results=Developer.find(:all,:conditions=>["userID=?",current_user.id]) %>
 
 
 
