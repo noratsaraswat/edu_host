@@ -1,4 +1,6 @@
 Educrasy::Application.routes.draw do
+  resources :developers
+
   resources :admin_people
 
   resources :choices
