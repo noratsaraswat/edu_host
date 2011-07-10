@@ -1,25 +1,13 @@
-<h1>Listing developers</h1>
+<h1>Lessons</h1>
 
-<table>
-  <tr>
-    <th>Userid</th>
-    <th>Lessonid</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+<h3> welcome <%=  current_user.name %></h3>
 
-<% @developers.each do |developer| %>
-  <tr>
-    <td><%= developer.userID %></td>
-    <td><%= developer.lessonID %></td>
-    <td><%= link_to 'Show', developer %></td>
-    <td><%= link_to 'Edit', edit_developer_path(developer) %></td>
-    <td><%= link_to 'Destroy', developer, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
+<% results=Developer.find(:all,:conditions=>"userID='#{current_user.id}'") %>
 
-<br />
 
-<%= link_to 'New Developer', new_developer_path %>
+
+
+
+
+
+<%= link_to "Create New Lesson",{:action=>"new",:controller=>"lessons"}%>
