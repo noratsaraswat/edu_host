@@ -1,39 +1,48 @@
-<% if user_signed_in? %>
-Signed in as <%= current_user.email %>. Not you?
-<%=link_to "Sign Out",destroy_user_session_path %>
-<% else %>
-<%=  link_to "Sign up",new_user_registration_path %> or <%= link_to "Sign_in", new_user_session_path %>
-<% end %>
-<br />
-<%=link_to "Contact",{:action=>"index", :controller=>"contact"} %>
-<h1>Home Page </h1>
-<h3>Educrasy </h3>
+
+  <div class="span-25 last" id="header">
+    Content Developers
+  </div>
+  <div class="span-15" id="header2">
+    Educrasy <br />
+    Education for 21 century
+   </div>
+   <div class="textsize span-10 last" id="logo">
+     logo
+
+   </div>
+   <div class="textsize span-25 last" >
+    I am a
+    </div>
+    <div class="span-25 last" id="mainlinks">
+      <%=link_to "Administrator",{:action=>"index", :controller=>"administrators"} %>
+      <%=link_to "Teacher",{:action=>"index", :controller=>"teachers"} %>
+      <%=link_to "Student",{:action=>"index", :controller=>"students"} %>
+    </div>
+    <div class=" textsize span-25 last">
+    <!--Who we are-->
+    </div>
+    <div class="span-10" id="video">
+    Content Developers
+    </div>
+    <div class="textsize span-14 last" id="signup">
+      <% if !user_signed_in? %>
+      <%=  link_to "Sign up",new_user_registration_path %> or <%= link_to "Sign_in", new_user_session_path %>
+
+      <% end %> <br />
+      <div id="contact">
+          <%=link_to "Contact",{:action=>"new", :controller=>"supports"} %>
+      </div>
+
+    </div>
 
 
-<%=link_to "Administrators",{:action=>"index", :controller=>"administrators"} %>
-<%=link_to "Teachers",{:action=>"index", :controller=>"teachers"} %>
-<%=link_to "Students",{:action=>"index", :controller=>"students"} %>
-<%=link_to "Content Developers",{:action=>"index", :controller=>"content_developers"} %> <br />
-<h1>Listing content_developers</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @content_developers.each do |content_developer| %>
-  <tr>
-    <td><%= content_developer.name %></td>
-    <td><%= link_to 'Show', content_developer %></td>
-    <td><%= link_to 'Edit', edit_content_developer_path(content_developer) %></td>
-    <td><%= link_to 'Destroy', content_developer, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Content developer', new_content_developer_path %>
+
+
+
+
+
+

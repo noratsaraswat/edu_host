@@ -5,9 +5,8 @@ class ContentDevelopersController < ApplicationController
   # GET /content_developers
   # GET /content_developers.xml
   def index
-    if current_user.role=='admin'
-    #redirect_to(:controller => "admin_people",:action => "index")
-    redirect_to(:controller => "developers",:action =>"index")
+    if current_user.role=='deve'
+     redirect_to(:controller => "developers",:action =>"index")
     return
     end
     @content_developers = ContentDeveloper.all
