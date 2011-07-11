@@ -3,12 +3,24 @@
 
 
 <p>
-  <b>Questionnairename:</b>
-  <%= @questionnaire.questionnaireName %>
+  <b>Questionnaire Name: &nbsp;&nbsp;  <%= @questionnaire.questionnaireName %></b> <br />
+  <%k=0%>
+  <%@questionnaire.quests.each do |question| %>
+  <b> <%=  k=k+1 %> &nbsp;<%=question.question %> </b><br /> <br />
+  <%=question.image %> <br /> <br />
+<%j=0%><h5>choices</h5>
+<% question.choices.each do |choice| %>
+      <%=j=j+1 %>
+      <%=choice.ChoiceAnswers%> <br />
+    <% end %> <br />
+
+  Answer &nbsp;&nbsp;<%=question.answer %> <br /> <br /> <br />
+  <% end %>
 </p>
 
 
 
 
-<%= link_to 'Edit', edit_questionnaire_path(@questionnaire) %> |
-<%= link_to 'Back', :action=>"new" %>
+<%= link_to 'Edit', edit_questionnaire_path(@questionnaire) %> <br />
+<%= link_to 'Back to add new questionnaire', :action=>"new" %> <br />
+<%= link_to 'Back to Lesson Details page', {:action=>"index",:controller=>"developers"} %>

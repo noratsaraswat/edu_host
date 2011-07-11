@@ -11,5 +11,6 @@
 </p>
 
 
-<%= link_to 'Edit', edit_content_info_path(@content_info) %> |
-<%= link_to 'Back', content_infos_path %>
+<%= link_to 'Edit', edit_content_info_path(@content_info) %> <br />
+<%=link_to "Back to add new Content",{:action=>"new", :controller=>"content_infos"} %> <br />
+<%= link_to 'Back to Lesson Details page', {:action=>"index",:controller=>"developers"} %>

@@ -1,19 +1,25 @@
-<h1>Lessons</h1>
+
 
 <h3> welcome <%=current_user.name %></h3>
 
-
+<h1>Lessons</h1>
 
 <%  results=Developer.find(:all, :conditions => { :userID=>current_user.id})  %>
+
 <% results.each do |admin| %>
+
   <% admin.lessons.each do |lesson| %>
-      <h2><%=lesson.lessonName %></h2>
-      <h3> contents</h3>
+          <h3><%=lesson.lessonName %></h3><span> contents</span>->
+
            <% lesson.lesson_pages.each do |lessonpage| %>
-               <%= lessonpage.content_info_id? ? lessonpage.content_info.name : lessonpage.questionnaire_id? ? lessonpage.questionnaire.questionnaireName : "" %> <br />
-            <% end %>
+
+                <% if  lessonpage.content_info_id %>
+                      <%=link_to "#{lessonpage.content_info.name}",{:action=>"show",:controller=>"content_infos",:id=>"#{lessonpage.content_info_id}"} %>
+                <% elsif lessonpage.questionnaire_id %>
+                      <%= link_to "#{lessonpage.questionnaire.questionnaireName}",{:action=>"show",:controller=>"questionnaires",:id=>"#{lessonpage.questionnaire_id}"} %>
+                 <% end %>
+           <% end %>
+               <br />
   <% end %>
 <% end %>
-
-
 <%= link_to "Create New Lesson",{:action=>"new",:controller=>"lessons"}%>

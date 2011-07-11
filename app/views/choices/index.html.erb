@@ -2,7 +2,6 @@
 
 <table>
   <tr>
-    <th>Questionid</th>
     <th>Choiceanswers</th>
     <th></th>
     <th></th>
@@ -11,7 +10,6 @@
 
 <% @choices.each do |choice| %>
   <tr>
-    <td><%= choice.QuestionID %></td>
     <td><%= choice.ChoiceAnswers %></td>
     <td><%= link_to 'Show', choice %></td>
     <td><%= link_to 'Edit', edit_choice_path(choice) %></td>

@@ -13,7 +13,7 @@
 
   <div class="field">
     <%= f.label "Questionnaire Name" %><br />
-    <%= f.select(:questionnaireID, Questionnaire.find(:all).collect {|c| [ c.questionnaireName, c.id ] })%>
+    <%= f.select(:questionnaire_id, Questionnaire.find(:all).collect {|c| [ c.questionnaireName, c.id ] })%>
   </div>
   <div class="field">
     <%= f.label "Question" %><br />
