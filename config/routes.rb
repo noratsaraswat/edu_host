@@ -1,4 +1,6 @@
 Educrasy::Application.routes.draw do
+  get "admin_users/new"
+
   resources :developers
 
   resources :admin_people
