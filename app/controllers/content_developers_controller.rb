@@ -5,7 +5,7 @@ class ContentDevelopersController < ApplicationController
   # GET /content_developers
   # GET /content_developers.xml
   def index
-    if current_user.role=='deve'
+    if current_user.role.name=='deve'
      redirect_to(:controller => "developers",:action =>"index")
     return
     end

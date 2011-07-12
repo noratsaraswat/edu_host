@@ -5,7 +5,7 @@ class AdministratorsController < ApplicationController
   # GET /administrators.xml
   def index
 
-    if current_user.role=='admin'
+    if current_user.role.name=='admin'
     redirect_to(:controller => "admin_people",:action => "index")
     return
     end

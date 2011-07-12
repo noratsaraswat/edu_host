@@ -14,11 +14,6 @@
 
   <p> <%= f.label :name %><br />
   <%= f.text_field :name %> </p>
-
-  <p> <%= f.label "Select Role" %><br />
-  <%= f.select(:role,[ [ "Student", "student"],["Teacher", "teacher"] ] )%> </p>
-
-  <p><%= f.submit "Sign up" %></p>
+   <p><%= f.submit "Sign up" %></p>
 <% end %>
-
 <%= render :partial => "devise/shared/links" %>

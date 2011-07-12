@@ -6,7 +6,7 @@ class Ability
     #
      user ||= User.new # guest user (not logged in)
 
-      if user.role=='admin'
+    if user.role.name=='admin'
         can :manage, :all
        
       end
@@ -18,8 +18,8 @@ class Ability
         if user.role=='teacher'
          can :manage, Teacher
         end
-        if user.role=='developer'
-          can :manage, ContentDeveloper
+        if user.role.name=='deve'
+          can :manage, [ContentDeveloper,Lesson]
           else
           can :read, :all
 

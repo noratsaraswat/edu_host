@@ -1,6 +1,6 @@
 class LessonsController < ApplicationController
-  before_filter :authenticate_user!
-  load_and_authorize_resource
+  #before_filter :authenticate_user!
+  #load_and_authorize_resource
   # GET /lessons
   # GET /lessons.xml
   def index
@@ -38,23 +38,13 @@ class LessonsController < ApplicationController
   # GET /lessons/1/edit
   def edit
     @lesson = Lesson.find(params[:id])
-    
-  end
-
+   end
   # POST /lessons
   # POST /lessons.xml
   def create
     @lesson = Lesson.new(params[:lesson])
-
-    #R@adminpeoplelessons =AdminPeopleLessons.new
-    #R@admin=AdminPerson.new
-
     @developerslessons =DevelopersLessons.new
     @developer=Developer.new
-    
-    
-   
-
     respond_to do |format|
       if @lesson.save
          @developer.lessonID=@lesson.id

@@ -52,3 +52,31 @@ root {
 #contact {
     padding-top: 30px;
 }
+
+.lessonhead1 {
+    border-bottom-width: 2px;
+    border-style: solid;
+    border-color: black;
+}
+
+.lessonhead1 h2 {
+    padding-bottom:0px;
+    border-bottom: 0px;
+    margin-bottom: 0px;
+}
+.contentSize {
+ font-size: 15px;
+}
+.lessonName h3 {
+    padding-bottom:0px;
+}
+
+.contentSize2 {
+    font-size: 18px;
+}
+.contentInfoColor {
+    color: green!important ;
+}
+.questionnaireColor {
+  color: blue!important;
+}
