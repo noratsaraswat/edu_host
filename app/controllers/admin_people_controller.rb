@@ -4,7 +4,7 @@ class AdminPeopleController < ApplicationController
   # GET /admin_people
   # GET /admin_people.xml
   def index
-    #@admin_people = AdminPerson.all
+    @admin_people = AdminPerson.all
     @role = Role.new
     respond_to do |format|
       format.html # index.html.erb
