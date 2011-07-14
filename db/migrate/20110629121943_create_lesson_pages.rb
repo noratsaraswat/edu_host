@@ -1,11 +1,9 @@
 class CreateLessonPages < ActiveRecord::Migration
   def self.up
     create_table :lesson_pages do |t|
-      t.integer :lessonID # changed to lesson_id
-      t.integer :orderNo # removed
-      t.string :datasource # changed to dataID integer and removed.
-      t.boolean :datatype
-
+      t.integer :lesson_id
+      t.integer :content_info_id
+      t.integer :questionnaire_id
       t.timestamps
     end
   end

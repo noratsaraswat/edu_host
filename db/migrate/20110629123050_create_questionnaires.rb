@@ -1,9 +1,9 @@
 class CreateQuestionnaires < ActiveRecord::Migration
   def self.up
     create_table :questionnaires do |t|
-      t.integer :questionnaireID # removed
       t.string :questionnaireName
       t.integer :questionID
+      t.integer :lesson_page_id
 
       t.timestamps
     end

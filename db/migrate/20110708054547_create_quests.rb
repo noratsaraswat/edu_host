@@ -1,11 +1,10 @@
 class CreateQuests < ActiveRecord::Migration
   def self.up
     create_table :quests do |t|
-      t.integer :questionnaireID
       t.string :question
       t.string :image
       t.string :answer
-
+      t.integer :questionnaire_id
       t.timestamps
     end
   end
