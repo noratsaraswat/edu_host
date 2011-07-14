@@ -9,7 +9,7 @@ class AdministratorsController < ApplicationController
     redirect_to(:controller => "admin_people",:action => "index")
     return
     end
-    @administrators = Administrator.all
+  #  @administrators = Administrator.all
 
     respond_to do |format|
       format.html # index.html.erb
@@ -23,10 +23,10 @@ class AdministratorsController < ApplicationController
   def show
     #@administrator = Administrator.find(params[:id])
 
-    respond_to do |format|
+    respond_to { |format|
       format.html # show.html.erb
       format.xml  { render :xml => @administrator }
-    end
+    }
   end
 
   # GET /administrators/new
