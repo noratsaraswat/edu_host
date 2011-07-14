@@ -44,17 +44,21 @@ class LessonPagesQuestionnaireController < ApplicationController
   def create
     @lesson_page = LessonPage.new(params[:lesson_page])
 
-    respond_to do |format|
+    respond_to { |format|
       if @lesson_page.save
 flash[:notice]="Questionnaire Data #{@lesson_page.questionnaire.questionnaireName} added to lesson #{@lesson_page.lesson.lessonName}"
-      format.html { redirect_to (:controller=>"lessons",:action => "new") }
+format.html do
+          redirect_to({:controller=>"lessons", :action =>"new"})
+        end
       format.xml  { render :xml => @lesson_page, :status => :created, :location => @lesson_page }
       else
         flash[:notice]="Questionnaire Data Failed"
         format.html { render :action => "new" }
-        format.xml  { render :xml => @lesson_page.errors, :status => :unprocessable_entity }
+        format.xml  do
+          render :xml => @lesson_page.errors, :status => :unprocessable_entity
+        end
       end
-    end
+    }
   end
 
   # PUT /lesson_pages/1
