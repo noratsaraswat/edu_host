@@ -25,6 +25,8 @@ class QuestionnairesController < ApplicationController
   # GET /questionnaires/new.xml
   def new
     @questionnaire = Questionnaire.new
+    @quest = Quest.new
+    @choice = Choice.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -41,10 +43,14 @@ class QuestionnairesController < ApplicationController
   # POST /questionnaires.xml
   def create
     @questionnaire = Questionnaire.new(params[:questionnaire])
+    @quest = Quest.new(params[:quest])
+    @choice = Choice.new(params[:choice])
 
     respond_to do |format|
       if @questionnaire.save
-        format.html { redirect_to(@questionnaire, :notice => 'Questionnaire was successfully created.') }
+        flash[:notice]="Questionnaire Name #{@questionnaire.questionnaireName} Created"
+        format.html { redirect_to(:controller =>"questionnaires",:action =>"new") }
+        #format.html { redirect_to(@questionnaire, :notice => 'Questionnaire was successfully created.') }
         format.xml  { render :xml => @questionnaire, :status => :created, :location => @questionnaire }
       else
         format.html { render :action => "new" }

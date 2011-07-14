@@ -43,7 +43,9 @@ class RolesController < ApplicationController
     @role = Role.new(params[:role])
      respond_to do |format|
       if @role.save
-        format.html { redirect_to(@role, :notice => 'Role was successfully created.') }
+        flash[:notice]="Role #{@role.name} assigned to user #{@role.user.name}"
+        format.html { redirect_to(:controller =>"admin_people",:action =>"index") }
+        #format.html { redirect_to(@role, :notice => 'Role was successfully created.') }
         format.xml  { render :xml => @role, :status => :created, :location => @role }
       else
         format.html { render :action => "new" }
@@ -59,7 +61,8 @@ class RolesController < ApplicationController
 
     respond_to do |format|
       if @role.update_attributes(params[:role])
-        format.html { redirect_to(@role, :notice => 'Role was successfully updated.') }
+        #format.html { redirect_to(@role, :notice => 'Role was successfully updated.') }
+        format.html { redirect_to(:controller =>"roles",:action =>"index") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

@@ -46,13 +46,11 @@ class LessonPagesQuestionnaireController < ApplicationController
 
     respond_to do |format|
       if @lesson_page.save
-        #format.html { render :controller=>"lessons",:action => "new" }
-
-
-
-        format.html { redirect_to(@lesson_page, :notice => 'Lesson page was successfully created.') }
-        format.xml  { render :xml => @lesson_page, :status => :created, :location => @lesson_page }
+flash[:notice]="Questionnaire Data #{@lesson_page.questionnaire.questionnaireName} added to lesson #{@lesson_page.lesson.lessonName}"
+      format.html { redirect_to (:controller=>"lessons",:action => "new") }
+      format.xml  { render :xml => @lesson_page, :status => :created, :location => @lesson_page }
       else
+        flash[:notice]="Questionnaire Data Failed"
         format.html { render :action => "new" }
         format.xml  { render :xml => @lesson_page.errors, :status => :unprocessable_entity }
       end
@@ -65,7 +63,7 @@ class LessonPagesQuestionnaireController < ApplicationController
     @lesson_page = LessonPage.find(params[:id])
 
     respond_to do |format|
-      if @lesson_page.update_attributes(params[:lesson_page])
+      if @lesson_page.update_attributes(params[:lesson_page_q])
         format.html { redirect_to(@lesson_page, :notice => 'Lesson page was successfully updated.') }
         format.xml  { head :ok }
       else

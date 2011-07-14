@@ -44,7 +44,9 @@ class ChoicesController < ApplicationController
 
     respond_to do |format|
       if @choice.save
-        format.html { redirect_to(@choice, :notice => 'Choice was successfully created.') }
+        flash[:notice]="Choice answer #{@choice.ChoiceAnswers} for question #{@choice.quest.question} created"
+        format.html { redirect_to(:controller =>"questionnaires",:action =>"new") }
+        #format.html { redirect_to(@choice, :notice => 'Choice was successfully created.') }
         format.xml  { render :xml => @choice, :status => :created, :location => @choice }
       else
         format.html { render :action => "new" }

@@ -44,7 +44,9 @@ class QuestsController < ApplicationController
 
     respond_to do |format|
       if @quest.save
-        format.html { redirect_to(@quest, :notice => 'Quest was successfully created.') }
+        flash[:notice]="Question #{@quest.question} for Questionnaire #{@quest.questionnaire.questionnaireName} Created"
+        format.html { redirect_to(:controller =>"questionnaires",:action =>"new") }
+        #format.html { redirect_to(@quest, :notice => 'Quest was successfully created.') }
         format.xml  { render :xml => @quest, :status => :created, :location => @quest }
       else
         format.html { render :action => "new" }

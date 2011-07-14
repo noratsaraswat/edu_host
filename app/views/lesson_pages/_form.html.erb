@@ -10,20 +10,21 @@
       </ul>
     </div>
   <% end %>
-
   <div class="field">
-    <%= f.label "Lesson Name" %><br />
+<%= f.label "Select Lesson Name" %> <br />
     <%= f.select(:lesson_id,  Lesson.find(:all).collect {|c| [ c.lessonName, c.id ] })%>
-
   </div>
-   <div class="field">
-    <%= f.label "Select Content Data Name" %><br />
-    <%= f.select(:content_info_id,ContentInfo.find(:all).collect {|c| [ c.name, c.id ] })%>
-  </div>
-
   
-  <div class="actions">
+   <span class="field">
+    <%= f.label "Content Datas" %> <br />
+    <%= f.select(:content_info_id,ContentInfo.find(:all).collect {|c| [ c.name, c.id ] })%>
+  </span>
+&nbsp;&nbsp;&nbsp;
+  <span class="actions">
     <%= f.submit "Add Content"%>
-  </div>
+  </span>
+
 <% end %>
+
+
 

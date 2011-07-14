@@ -27,9 +27,8 @@ class LessonsController < ApplicationController
   # GET /lessons/new.xml
   def new
     @lesson = Lesson.new
-    
-
-    respond_to do |format|
+    @lesson_page = LessonPage.new
+     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @lesson }
     end
@@ -43,6 +42,7 @@ class LessonsController < ApplicationController
   # POST /lessons.xml
   def create
     @lesson = Lesson.new(params[:lesson])
+    @lesson_page = LessonPage.new(params[:lesson_page])
     @developerslessons =DevelopersLessons.new
     @developer=Developer.new
     respond_to do |format|
@@ -53,20 +53,20 @@ class LessonsController < ApplicationController
          @developerslessons.lesson_id=@lesson.id
          @developerslessons.developer_id=@developer.id
          @developerslessons.save
-         format.html { redirect_to(:controller =>"developers",:action =>"index") }
+         #format.html { redirect_to(:controller =>"developers",:action =>"index") }
+         flash[:notice]="Lesson Name #{@lesson.lessonName} Created"
+         format.html { redirect_to(:controller =>"lessons",:action =>"new") }
          format.xml  { render :xml => @lesson, :status => :created, :location => @lesson }
-      else
-         format.html{ render :action => "new"}
-         format.xml  { render :xml => @lesson.errors, :status => :unprocessable_entity }
+       else
+        format.html{ render :action => "new"}
+        format.xml  { render :xml => @lesson.errors, :status => :unprocessable_entity }
       end
     end
   end
-
   # PUT /lessons/1
   # PUT /lessons/1.xml
   def update
     @lesson = Lesson.find(params[:id])
-
     respond_to do |format|
       if @lesson.update_attributes(params[:lesson])
         format.html { redirect_to(@lesson, :notice => 'Lesson was successfully updated.') }

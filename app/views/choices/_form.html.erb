@@ -16,7 +16,7 @@
     <%= f.select(:quest_id, Quest.find(:all).collect {|c| [ c.question, c.id ] })%>
   </div>
   <div class="field">
-    <%= f.label :ChoiceAnswers %><br />
+    <%= f.label "Enter choice Answers" %><br />
     <%= f.text_field :ChoiceAnswers %>
   </div>
   <div class="actions">

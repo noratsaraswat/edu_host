@@ -43,7 +43,8 @@ class ContentInfosController < ApplicationController
    @content_info = ContentInfo.new(params[:content_info])
     respond_to do |format|
       if @content_info.save
-        format.html { redirect_to(@content_info, :notice => 'Content info was successfully created.') }
+        #format.html { redirect_to(@content_info, :notice => 'Content info was successfully created.') }
+        format.html { redirect_to(:action=>"new",:controller=>"lessons") }
         format.xml  { render :xml => @content_info, :status => :created, :location => @content_info }
       else
         format.html { render :action => "new" }
@@ -67,7 +68,6 @@ class ContentInfosController < ApplicationController
       end
     end
   end
-
   # DELETE /content_infos/1
   # DELETE /content_infos/1.xml
   def destroy

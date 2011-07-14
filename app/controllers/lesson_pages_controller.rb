@@ -25,6 +25,8 @@ class LessonPagesController < ApplicationController
   # GET /lesson_pages/new.xml
   def new
     @lesson_page = LessonPage.new
+   # @lesson_page.content_info_id=null
+    #@lesson_page.questionnaire_id=null
 
     respond_to do |format|
       format.html # new.html.erb
@@ -45,13 +47,28 @@ class LessonPagesController < ApplicationController
     respond_to do |format|
       if @lesson_page.save
         #format.html { render :controller=>"lessons",:action => "new" }
-        
-        
 
-        format.html { redirect_to(@lesson_page, :notice => 'Lesson page was successfully created.') }
+        if @lesson_page.content_info
+            flash[:notice]="Content Data #{@lesson_page.content_info.name} added to lesson #{@lesson_page.lesson.lessonName}"
+         elsif @lesson_page.questionnaire
+         flash[:notice]="Questionnaire Data #{@lesson_page.questionnaire.questionnaireName} added to lesson #{@lesson_page.lesson.lessonName}"
+        end
+
+         format.html { redirect_to(:controller =>"lessons",:action =>"new") }
+
+        #format.html { redirect_to(@lesson_page, :notice => 'Lesson page was successfully created.') }
         format.xml  { render :xml => @lesson_page, :status => :created, :location => @lesson_page }
       else
+
+       if @lesson_page.content_info_id
         format.html { render :action => "new" }
+       end
+       if @lesson_page.questionnaire_id
+          #@lesson_page.content_info_id=""
+         #format.html { render 'lesson_pages_questionnaire/new' }
+         #format.html { redirect_to(:controller=>"lesson_pages_questionnaire",:action=>"new") }
+         format.html { render :template=>'lesson_pages_questionnaire/new'}
+       end
         format.xml  { render :xml => @lesson_page.errors, :status => :unprocessable_entity }
       end
     end

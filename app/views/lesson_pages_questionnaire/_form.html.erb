@@ -12,17 +12,17 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Lesson Name" %><br />
+    <%= f.label "Select Lesson Name" %><br />
     <%= f.select(:lesson_id,  Lesson.find(:all).collect {|c| [ c.lessonName, c.id ] })%>
 
   </div>
-    <div class="field">
+    <span class="field">
     <%= f.label "Questionnaire Name" %><br />
     <%= f.select(:questionnaire_id,Questionnaire.find(:all).collect {|c| [ c.questionnaireName, c.id ] })%>
-  </div>
+   </span>
    
-  <div class="actions">
+  <span class="actions">
     <%= f.submit "Add Questionnaire" %>
-  </div>
+  </span>
 <% end %>
 

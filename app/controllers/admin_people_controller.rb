@@ -5,7 +5,7 @@ class AdminPeopleController < ApplicationController
   # GET /admin_people.xml
   def index
     #@admin_people = AdminPerson.all
-
+    @role = Role.new
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @admin_people }
@@ -27,6 +27,7 @@ class AdminPeopleController < ApplicationController
   # GET /admin_people/new.xml
   def new
     #@admin_person = AdminPerson.new
+    #@role = Role.new
 
     respond_to do |format|
       format.html # new.html.erb
@@ -43,6 +44,7 @@ class AdminPeopleController < ApplicationController
   # POST /admin_people.xml
   def create
     #@admin_person = AdminPerson.new(params[:admin_person])
+    #@role = Role.new(params[:role])
 
     respond_to do |format|
       if @admin_person.save

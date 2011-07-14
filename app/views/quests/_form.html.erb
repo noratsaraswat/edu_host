@@ -12,7 +12,7 @@
   <% end %>
 
   <div class="field">
-    <%= f.label "Questionnaire Name" %><br />
+    <%= f.label "Select Questionnaire Name" %><br />
     <%= f.select(:questionnaire_id, Questionnaire.find(:all).collect {|c| [ c.questionnaireName, c.id ] })%>
   </div>
   <div class="field">
@@ -28,10 +28,6 @@
     <%= f.label "Provide Correct Answer" %><br />
     <%= f.text_field :answer %>
   </div>
-
-   
-    <%=link_to "Add choice Answers",{:action=>"new", :controller=>"choices"} %>
-    
   <div class="actions">
     <%= f.submit "Create Question"%>
   </div>
