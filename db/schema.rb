@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110712064845) do
+ActiveRecord::Schema.define(:version => 20110714132303) do
 
   create_table "admin_people", :force => true do |t|
     t.integer  "userID"
@@ -62,10 +62,10 @@ ActiveRecord::Schema.define(:version => 20110712064845) do
   end
 
   create_table "developers", :force => true do |t|
-    t.integer  "userID"
     t.integer  "lessonID"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "userid"
   end
 
   create_table "developers_lessons", :id => false, :force => true do |t|

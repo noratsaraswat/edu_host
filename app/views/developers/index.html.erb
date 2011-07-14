@@ -7,7 +7,7 @@
 <br />
 <br />
 </div>
-<%results=Developer.find(:all, :conditions => { :userID=>current_user.id})  %>
+<%results=Developer.find(:all, :conditions => { :userid=>current_user.id})  %>
 
 <div class="lessonhead1">
 <h2> Lessons created by  <%= current_user.name %></h2>
@@ -47,7 +47,7 @@ Empty List
 <br />
 <br />
 <%# others=Developer.find_by_sql("select *from developers where userID!=#{current_user.id}")  %>
-<%others=Developer.where("userID != ?",current_user.id)  %>
+<%others=Developer.where("userid != ?",current_user.id)  %>
 <div class="lessonhead2">
 <%if others.size==0 %>
 Empty List

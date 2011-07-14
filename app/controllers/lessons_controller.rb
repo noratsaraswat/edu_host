@@ -48,7 +48,7 @@ class LessonsController < ApplicationController
     respond_to do |format|
       if @lesson.save
          @developer.lessonID=@lesson.id
-         @developer.userID=current_user.id
+         @developer.userid=current_user.id
          @developer.save
          @developerslessons.lesson_id=@lesson.id
          @developerslessons.developer_id=@developer.id
