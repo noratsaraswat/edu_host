@@ -3,7 +3,6 @@ class CreateQuests < ActiveRecord::Migration
     create_table :quests do |t|
       t.string :question
       t.string :image
-      t.string :answer
       t.integer :questionnaire_id
       t.timestamps
     end

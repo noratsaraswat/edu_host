@@ -3,8 +3,6 @@ class CreateContentInfos < ActiveRecord::Migration
     create_table :content_infos do |t|
       t.string :name
       t.string :path
-      t.integer :lesson_page_id
-
       t.timestamps
     end
   end

@@ -3,8 +3,6 @@ class CreateQuestionnaires < ActiveRecord::Migration
     create_table :questionnaires do |t|
       t.string :questionnaireName
       t.integer :questionID
-      t.integer :lesson_page_id
-
       t.timestamps
     end
   end

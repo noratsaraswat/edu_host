@@ -3,6 +3,7 @@ class CreateChoices < ActiveRecord::Migration
     create_table :choices do |t|
       t.string :ChoiceAnswers
       t.integer :quest_id
+      t.boolean :answer
 
       t.timestamps
     end
