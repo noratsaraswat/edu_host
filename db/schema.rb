@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110716100752) do
+ActiveRecord::Schema.define(:version => 20110718123650) do
 
   create_table "admin_people", :force => true do |t|
     t.integer  "userID"
