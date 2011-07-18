@@ -38,7 +38,7 @@
           </span>
          <% else %>
            <%=j=j+1 %>&nbsp;
-          <%=choice.ChoiceAnswers%> &nbsp;
+          <%=link_to "#{choice.ChoiceAnswers}",{:action=>"edit",:controller=>"choices",:id=>"#{choice.id}"}%> &nbsp;
         <% end %>
        <% end %>
       </td>
