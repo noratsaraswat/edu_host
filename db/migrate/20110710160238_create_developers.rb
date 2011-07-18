@@ -1,7 +1,7 @@
 class CreateDevelopers < ActiveRecord::Migration
   def self.up
     create_table :developers do |t|
-      t.integer :userID
+      t.integer :userid
       t.integer :lessonID
 
       t.timestamps
