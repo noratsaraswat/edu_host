@@ -1,4 +1,4 @@
-<h1>Listing lessons</h1>
+<h1>Listing lesson names</h1>
 
 <table>
   <tr>
@@ -23,4 +23,6 @@
 <br />
 
 
-<%= link_to 'New Lesson', new_lesson_path %>
+<%#= link_to 'New Lesson', new_lesson_path %>
+<%= link_button_to "Create New Lesson", url_for(new_lesson_path)%> &nbsp; &nbsp;
+<%= link_button_to "Lesson Details", url_for(:action=>"index",:controller=>"developers")%>

@@ -2,8 +2,9 @@ class ChoicesController < ApplicationController
   # GET /choices
   # GET /choices.xml
   def index
-    @choices = Choice.all
-
+    #@choices = Choice.all
+    @choice=Choice.find(:first,:conditions=>{:quest_id=>params[:id]})
+    @choices = Choice.find(:all,:conditions=>{:quest_id=>params[:id]})
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @choices }
@@ -62,7 +63,8 @@ class ChoicesController < ApplicationController
 
     respond_to do |format|
       if @choice.update_attributes(params[:choice])
-        format.html { redirect_to(@choice, :notice => 'Choice was successfully updated.') }
+        #format.html { redirect_to(@choice, :notice => 'Choice was successfully updated.') }
+        format.html { redirect_to(:action=>"show",:controller=>"questionnaires",:id=>"#{@choice.quest.questionnaire.id}") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -78,7 +80,8 @@ class ChoicesController < ApplicationController
     @choice.destroy
 
     respond_to do |format|
-      format.html { redirect_to(choices_url) }
+      #format.html { redirect_to(choices_url) }
+      format.html { redirect_to(:action=>"show",:controller=>"questionnaires",:id=>"#{@choice.quest.questionnaire.id}") }
       format.xml  { head :ok }
     end
   end

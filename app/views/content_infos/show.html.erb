@@ -13,4 +13,6 @@
 <%#= link_to 'Back to Lesson Details page', {:action=>"index",:controller=>"developers"} %>
 <%#= link_to 'Back to New Lesson page', {:action=>"new",:controller=>"lessons"} %>
 <%= link_button_to "Lesson Details page", url_for(:action=>"index", :controller=>"developers")%>
+<%= link_button_to "Edit", url_for(:action=>"edit")%>
+<%=link_button_to "List", url_for(:action=>"index", :controller=>"content_infos")%>
 </div>

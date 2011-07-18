@@ -79,6 +79,20 @@ class QuestionnairesController < ApplicationController
   # DELETE /questionnaires/1.xml
   def destroy
     @questionnaire = Questionnaire.find(params[:id])
+
+    @choice=Choice.find(:all)
+    @quest = Quest.find(:all,:conditions=>{:questionnaire_id=>@questionnaire.id})
+    @quest.each do |quest |
+
+      @choice.each do |choice |
+        if choice.quest_id==quest.id
+          choice.destroy
+        end
+      end
+      quest.destroy
+    end
+
+
     @questionnaire.destroy
 
     respond_to do |format|

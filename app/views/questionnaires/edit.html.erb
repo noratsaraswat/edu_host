@@ -1,6 +1,6 @@
-<h1>Editing questionnaire</h1>
+<h1>Editing questionnaire name</h1>
 
 <%= render 'form' %>
-
-<%= link_to 'Show', @questionnaire %> |
-<%= link_to 'Back', questionnaires_path %>
+<br />
+<%= link_button_to "Show", url_for(@questionnaire)%> &nbsp;&nbsp;
+<%= link_button_to "List Questionnaire", url_for(:action=>"index")%>

@@ -62,7 +62,7 @@ class QuestsController < ApplicationController
 
     respond_to do |format|
       if @quest.update_attributes(params[:quest])
-        format.html { redirect_to(@quest, :notice => 'Quest was successfully updated.') }
+        format.html { redirect_to(:action=>"show",:controller=>"questionnaires",:id=>"#{@quest.questionnaire.id}") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }
@@ -75,6 +75,10 @@ class QuestsController < ApplicationController
   # DELETE /quests/1.xml
   def destroy
     @quest = Quest.find(params[:id])
+    @choices = Choice.find(:all,:conditions=>{:quest_id=>@quest.id})
+    @choices.each do |choice |
+      choice.destroy
+    end
     @quest.destroy
 
     respond_to do |format|

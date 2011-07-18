@@ -24,7 +24,8 @@ Empty List
 <% admin.lessons.each do |lesson| %>
 <br />
       <%a=a+1%>
-<div class="lessonName"> <h3><%=a%> &nbsp;&nbsp;<%=lesson.lessonName %></h3></div><span class="contentSize"> contents-></span>
+
+<div class="lessonName"> <h3><%=a%> &nbsp;&nbsp;<%=link_to"#{lesson.lessonName}",{:action=>"show",:controller=>"lessons",:id=>"#{lesson.id}"} %></h3></div><span class="contentSize"> contents-></span>
         <%b=0%>
         <% lesson.lesson_pages.each do |lessonpage| %> &nbsp; &nbsp;
             <span class="contentSize2">

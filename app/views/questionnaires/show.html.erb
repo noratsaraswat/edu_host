@@ -1,6 +1,5 @@
-
 <div class="span-25 last" id="questionnaireHead">
-    Questionnaire  &nbsp;&nbsp;  <%= @questionnaire.questionnaireName %>
+    <%=link_to "#{@questionnaire.questionnaireName}",{:action=>"edit",:controller=>"questionnaires",:id=>"#{@questionnaire.id}"} %>
     <br />
 <br />
 </div>
@@ -17,9 +16,6 @@
       <td>
         <h3>Choices</h3>
       </td>
-      <td>
-        <h3>Answer</h3>
-      </td>
     </tr>
   </thead>
   <tbody>
@@ -27,7 +23,7 @@
     <%@questionnaire.quests.each do |question| %>
     <tr>
       <td>
-      <%=  k=k+1 %> &nbsp;<%=question.question %>
+      <%=  k=k+1 %> &nbsp;<%=link_to "#{question.question}",{:action=>"edit",:controller=>"quests",:id=>"#{question.id}"} %>
       </td>
       <td>
         <%=question.image %>
@@ -35,18 +31,23 @@
       <td>
         <%j=0%>
         <% question.choices.each do |choice| %>
-           <%=j=j+1 %>
-           <%=choice.ChoiceAnswers%>
+        <% if choice.answer %>
+          <span id="correctAnswer">
+              <%=j=j+1 %>&nbsp;
+              <%=link_to "#{choice.ChoiceAnswers}",{:action=>"edit",:controller=>"choices",:id=>"#{choice.id}"},:id=>"correctAnswer"%> &nbsp;
+          </span>
+         <% else %>
+           <%=j=j+1 %>&nbsp;
+          <%=choice.ChoiceAnswers%> &nbsp;
+        <% end %>
        <% end %>
-      </td>
-      <td>
-        <%=question.answer %>
       </td>
     </tr>
     <% end %>
   </tbody>
 
 </table>
+<span id="correctAnswer"> * Correct Answer</span>
 <div class="span-25 last">
   <%#= link_to 'Edit', edit_questionnaire_path(@questionnaire) %> <br />
   <%#= link_to 'Back to add new questionnaire', :action=>"new" %> <br />

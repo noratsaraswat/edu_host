@@ -75,7 +75,19 @@ class RolesController < ApplicationController
   # DELETE /roles/1.xml
   def destroy
     @role = Role.find(params[:id])
+    unless @role.user_id==1
+    @user=User.find(@role.user_id)
+    # deleting the link between lesson and user
+    @developers=Developer.find(:all,:conditions=>{:userid=>@role.user_id})
+
+      @developers.each do |devel |
+        devel.destroy
+      end
     @role.destroy
+    @user.destroy
+    else
+     flash[:notice]="Can't delete This Administrator Account"
+    end
 
     respond_to do |format|
       format.html { redirect_to(roles_url) }

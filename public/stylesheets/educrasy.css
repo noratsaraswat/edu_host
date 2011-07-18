@@ -108,3 +108,6 @@ root {
     top: 60px;
     left: 20px;
 }
+#correctAnswer {
+    color: green;
+}

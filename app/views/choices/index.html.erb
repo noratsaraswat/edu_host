@@ -1,18 +1,23 @@
-<h1>Listing choices</h1>
+<h2>Listing  answers for question <%= @choice.quest.question  %> </h2>
+
 
 <table>
   <tr>
-    <th>Choiceanswers</th>
-    <th></th>
-    <th></th>
+    <th>Choice Answers</th>
     <th></th>
   </tr>
 
 <% @choices.each do |choice| %>
   <tr>
-    <td><%= choice.ChoiceAnswers %></td>
-    <td><%= link_to 'Show', choice %></td>
-    <td><%= link_to 'Edit', edit_choice_path(choice) %></td>
+    <td>
+        <%  if choice.answer %>
+        <span id="correctAnswer">
+          <%= choice.ChoiceAnswers %>
+        </span>
+        <% else %>
+        <%= choice.ChoiceAnswers %>
+        <% end%>
+    </td>
     <td><%= link_to 'Destroy', choice, :confirm => 'Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
@@ -20,4 +25,6 @@
 
 <br />
 
-<%= link_to 'New Choice', new_choice_path %>
+<%#= link_to 'New Choice', new_choice_path %>
+<%=link_button_to "Create New Choice",url_for(:action=>"new",:controller=>"questionnaires")%>
+<%=link_button_to "Back",url_for(:back)%>

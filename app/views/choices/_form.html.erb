@@ -19,7 +19,11 @@
     <%= f.label "Enter choice Answers" %><br />
     <%= f.text_field :ChoiceAnswers %>
   </div>
-  <div class="actions">
+ <div class="field">
+    <%= f.label "Tick Correct Answer" %>&nbsp;
+    <%= f.check_box :answer %>
+  </div>
+   <div class="actions">
     <%= f.submit %>
   </div>
 <% end %>

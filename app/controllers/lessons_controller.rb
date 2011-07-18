@@ -82,6 +82,19 @@ class LessonsController < ApplicationController
   # DELETE /lessons/1.xml
   def destroy
     @lesson = Lesson.find(params[:id])
+    @developers=Developer.find(:all,:conditions=>{:lessonID=>@lesson.id})
+    @developers.each do | developer |
+      developer.destroy
+    end
+    @developerslessons =DevelopersLessons.find(:all,:conditions=>{:lesson_id=>@lesson.id})
+    @developerslessons.each do | deve |
+      deve.destroy
+    end
+
+    @lesson_page = LessonPage.find(:all,:conditions=>{:lesson_id=>@lesson.id})
+    @lesson_page.each do |less |
+      less.destroy
+    end
     @lesson.destroy
 
     respond_to do |format|

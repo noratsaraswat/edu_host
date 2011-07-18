@@ -1,6 +1,6 @@
-<h1>Editing quest</h1>
+<h1>Editing Question</h1>
 
 <%= render 'form' %>
 
-<%= link_to 'Show', @quest %> |
-<%= link_to 'Back', quests_path %>
+<%=link_button_to 'Question Details',url_for(:action=>"show",:controller=>"questionnaires",:id=>"#{@quest.questionnaire.id}") %>
+<%=link_button_to 'List Questions',url_for(:action=>"index",:controller=>"quests") %>

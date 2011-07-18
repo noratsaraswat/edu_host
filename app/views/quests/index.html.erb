@@ -1,12 +1,9 @@
-<h1>Listing quests</h1>
+<h1>Listing Questions</h1>
 
 <table>
   <tr>
-    <th>Questionnaireid</th>
     <th>Question</th>
     <th>Image</th>
-    <th>Answer</th>
-    <th></th>
     <th></th>
     <th></th>
   </tr>
@@ -15,14 +12,15 @@
   <tr>
     <td><%= quest.question %></td>
     <td><%= quest.image %></td>
-    <td><%= quest.answer %></td>
-    <td><%= link_to 'Show', quest %></td>
+    <td></td>
     <td><%= link_to 'Edit', edit_quest_path(quest) %></td>
-    <td><%= link_to 'Destroy', quest, :confirm => 'Are you sure?', :method => :delete %></td>
+    <td><%= link_to 'Destroy', quest, :confirm => 'Choice Answers also deleted. Are you sure?', :method => :delete %></td>
   </tr>
 <% end %>
 </table>
 
 <br />
 
-<%= link_to 'New Quest', new_quest_path %>
+<%#= link_to 'New Quest', new_quest_path %>
+<%=link_button_to "New Question",url_for(:action=>"new",:controller=>"questionnaires")%>
+<%=link_button_to "Back",url_for(:back)%>
