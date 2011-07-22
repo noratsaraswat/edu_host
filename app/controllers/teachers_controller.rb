@@ -5,6 +5,10 @@ class TeachersController < ApplicationController
   # GET /teachers.xml
   def index
     @teachers = Teacher.all
+    if current_user.role.name=='teacher'
+    redirect_to(:controller => "teacher_details",:action => "index")
+    return
+    end
 
     respond_to do |format|
       format.html # index.html.erb

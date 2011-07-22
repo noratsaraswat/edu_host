@@ -25,9 +25,6 @@ class LessonPagesController < ApplicationController
   # GET /lesson_pages/new.xml
   def new
     @lesson_page = LessonPage.new
-   # @lesson_page.content_info_id=null
-    #@lesson_page.questionnaire_id=null
-
     respond_to do |format|
       format.html # new.html.erb
       format.xml  { render :xml => @lesson_page }

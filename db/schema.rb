@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110718123650) do
+ActiveRecord::Schema.define(:version => 20110721162034) do
 
   create_table "admin_people", :force => true do |t|
     t.integer  "userID"
@@ -39,6 +39,12 @@ ActiveRecord::Schema.define(:version => 20110718123650) do
     t.datetime "updated_at"
     t.integer  "quest_id"
     t.boolean  "answer"
+  end
+
+  create_table "class_details", :force => true do |t|
+    t.string   "classname"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "content_data", :force => true do |t|
@@ -80,6 +86,15 @@ ActiveRecord::Schema.define(:version => 20110718123650) do
     t.string   "place"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "lesson_classes", :force => true do |t|
+    t.integer  "lesson_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "class_detail_id"
+    t.string   "unique_classid"
+    t.integer  "teacherid"
   end
 
   create_table "lesson_pages", :force => true do |t|
@@ -126,6 +141,13 @@ ActiveRecord::Schema.define(:version => 20110718123650) do
     t.datetime "updated_at"
   end
 
+  create_table "student_lessons", :force => true do |t|
+    t.integer  "lesson_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+  end
+
   create_table "students", :force => true do |t|
     t.string   "name"
     t.string   "classname"
@@ -145,6 +167,13 @@ ActiveRecord::Schema.define(:version => 20110718123650) do
     t.integer  "classID"
     t.datetime "created_at"
     t.datetime "updated_at"
+  end
+
+  create_table "teacher_lessons", :force => true do |t|
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "user_id"
+    t.integer  "lesson_id"
   end
 
   create_table "teachers", :force => true do |t|

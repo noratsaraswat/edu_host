@@ -1,45 +1,48 @@
-<% if user_signed_in? %>
-Signed in as <%= current_user.email %>. Not you?
-<%=link_to "Sign Out",destroy_user_session_path %>
-<% else %>
-<%=  link_to "Sign up",new_user_registration_path %> or <%= link_to "Sign_in", new_user_session_path %>
-<% end %>
 
-<br />
-<%=link_to "Contact",{:action=>"index", :controller=>"contact"} %>
+  <div class="span-25 last" id="header">
+    Students
+  </div>
+  <div class="span-15" id="header2">
+    Educrasy <br />
+    Education for 21 century
+   </div>
+   <div class="textsize span-10 last" id="logo">
+     logo
 
-<h1>Home Page </h1>
-<h3>Educrasy </h3>
+   </div>
+   <div class="textsize span-25 last" >
+    I am a
+    </div>
+    <div class="span-25 last" id="mainlinks">
+      <%=link_to "Administrator",{:action=>"index", :controller=>"administrators"} %>
+      <%=link_to "Teacher",{:action=>"index", :controller=>"teachers"} %>
+      <%=link_to "Content Developer",{:action=>"index", :controller=>"content_developers"} %> <br />
+    </div>
+    <div class=" textsize span-25 last">
+    Who are we?
+    </div>
+    <div class="span-10" id="video">
+    Students Text
+    </div>
+    <div class="textsize span-14 last" id="signup">
+      <% if !user_signed_in? %>
+      <%=  link_to "Sign up",new_user_registration_path %> or <%= link_to "Sign_in", new_user_session_path %>
+
+      <% end %> <br />
+      <div id="contact">
+          <%=link_to "Contact",{:action=>"new", :controller=>"supports"} %>
+      </div>
+
+    </div>
 
 
-<%=link_to "Administrators",{:action=>"index", :controller=>"administrators"} %>
-<%=link_to "Teachers",{:action=>"index", :controller=>"teachers"} %>
-<%=link_to "Students",{:action=>"index", :controller=>"students"} %><%=link_to "Login",{:action=>"index", :controller=>"student_details"} %>
-<%=link_to "Content Developers",{:action=>"index", :controller=>"content_developers"} %> <br />
-<h1>Listing students</h1>
 
-<table>
-  <tr>
-    <th>Name</th>
-    <th>Classname</th>
-    <th>Standard</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
 
-<% @students.each do |student| %>
-  <tr>
-    <td><%= student.name %></td>
-    <td><%= student.classname %></td>
-    <td><%= student.standard %></td>
-    <td><%= link_to 'Show', student %></td>
-    <td><%= link_to 'Edit', edit_student_path(student) %></td>
-    <td><%= link_to 'Destroy', student, :confirm => 'Are you sure?', :method => :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
 
-<%= link_to 'New Student', new_student_path %>
+
+
+
+
+
+

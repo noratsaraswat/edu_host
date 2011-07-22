@@ -111,3 +111,17 @@ root {
 #correctAnswer {
     color: green;
 }
+.teacherhead1 {
+    text-align: center;
+    font-size: 18px;
+}
+
+.teacherhead2 {
+    font-size: 18px;
+}
+#info {
+    font-size: 20px;
+}
+#valiedCode {
+    font-size: 18px;
+}

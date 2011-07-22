@@ -1,6 +1,8 @@
 class User < ActiveRecord::Base
    has_one :role
-  # Include default devise modules. Others available are:
+   has_many :teacher_lessons
+   has_many :student_lessons
+   # Include default devise modules. Others available are:
   # :token_authenticatable, :encryptable, :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable

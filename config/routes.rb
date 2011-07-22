@@ -1,4 +1,7 @@
 Educrasy::Application.routes.draw do
+  get "teacher_lesson/add"
+  get "teacher_lesson/remove"
+
   resources :roles
 
   get "admin_users/new"
@@ -28,12 +31,18 @@ Educrasy::Application.routes.draw do
   get "compleated/index"
 
   get "student_lesson_page/index"
+  get "student_lesson_page/find"
+  get "student_lesson_page/result"
+  get "student_lesson_page/add"
+  get "student_lesson_page/remove"
 
   resources :student_details
 
   get "class_performance_page/index"
 
   get "teacher_lesson_details/index"
+  get "teacher_lesson_details/add"
+  get "teacher_lesson_details/remove"
 
   resources :teacher_details
 
