@@ -1,8 +1,8 @@
 class CreateTeacherLessons < ActiveRecord::Migration
   def self.up
     create_table :teacher_lessons do |t|
-      t.integer :lessonid
-      t.integer :userid
+      t.integer :lesson_id
+      t.integer :user_id
 
       t.timestamps
     end
