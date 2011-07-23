@@ -20,9 +20,12 @@ class TeacherLessonDetailsController < ApplicationController
     if @lessonclass.save
       #flash[:notice]="Class #{@lessonclass.class_detail.classname} Added to lesson #{@lessonclass.lesson.lessonName} Unique code is #{params[:code]}"
       flash[:notice]="Unique ID for lesson #{@lessonclass.lesson.lessonName} for class #{@lessonclass.class_detail.classname} is #{vall} Please provide this to your students to add them selves to this  class"
-      redirect_to(:controller =>"teacher_lesson_details",:action =>"index",:id=>"#{@lesson_id}")
+      #redirect_to(:controller =>"teacher_lesson_details",:action =>"index",:id=>"#{@lesson_id}")
     return
+    else
+      flash[:notice]="Lesson #{@lessonclass.lesson.lessonName} for class #{@lessonclass.class_detail.classname} already added"
    end
+   redirect_to(:controller =>"teacher_lesson_details",:action =>"index",:id=>"#{@lesson_id}")
   end
   def remove
     @lessonclass = LessonClass.find(params[:id])

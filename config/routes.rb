@@ -1,4 +1,6 @@
 Educrasy::Application.routes.draw do
+  resources :class_details
+
   get "teacher_lesson/add"
   get "teacher_lesson/remove"
 
@@ -35,6 +37,10 @@ Educrasy::Application.routes.draw do
   get "student_lesson_page/result"
   get "student_lesson_page/add"
   get "student_lesson_page/remove"
+  get "student_lesson_page/lesson"
+  get "student_lesson_page/nextlesson"
+  get "student_lesson_page/prevlesson"
+  get "student_lesson_page/teacherlesson"
 
   resources :student_details
 

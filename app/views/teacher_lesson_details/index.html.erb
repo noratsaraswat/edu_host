@@ -27,5 +27,5 @@ Class View
  <h3>
  <span class="notice2"><%= notice %></span>
  </h3>
-  preview lesson
+  <%= link_button_to "Preview Lesson", url_for(:action=>"teacherlesson",:controller=>"student_lesson_page",:lessonid=>"#{@lesson.lesson.id}")%>
 </div>

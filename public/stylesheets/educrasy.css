@@ -125,3 +125,15 @@ root {
 #valiedCode {
     font-size: 18px;
 }
+
+#lessonhead3 {
+    font-size: 24px;
+    text-align:center;
+}
+#video {
+    border-width: 2px;
+    height: 300px;
+}
+#videoGap {
+    height: 250px;
+}

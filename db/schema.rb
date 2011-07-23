@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110721162034) do
+ActiveRecord::Schema.define(:version => 20110723074019) do
 
   create_table "admin_people", :force => true do |t|
     t.integer  "userID"
@@ -90,11 +90,11 @@ ActiveRecord::Schema.define(:version => 20110721162034) do
 
   create_table "lesson_classes", :force => true do |t|
     t.integer  "lesson_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "class_detail_id"
     t.string   "unique_classid"
     t.integer  "teacherid"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "lesson_pages", :force => true do |t|
@@ -146,6 +146,7 @@ ActiveRecord::Schema.define(:version => 20110721162034) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.integer  "user_id"
+    t.integer  "finished"
   end
 
   create_table "students", :force => true do |t|
