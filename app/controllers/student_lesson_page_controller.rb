@@ -42,6 +42,7 @@ class StudentLessonPageController < ApplicationController
      redirect_to(:action =>"index")
   end
   def lesson
+     @answer = Answer.new
     @lessonclass=LessonClass.find(:first,:conditions=>{:lesson_id=>"#{params[:lessonid]}"} )
     @studentlesson=StudentLesson.find(:first,:conditions=>{:lesson_id=>"#{params[:lessonid]}",:user_id=>"#{current_user.id}"} )
     @current=@studentlesson.finished
@@ -52,6 +53,7 @@ class StudentLessonPageController < ApplicationController
     @instructer=User.find(:first,:conditions=>{:id=>"#{@lessonclass.teacherid}"})
     @instructername=@instructer.name
     @lessonpages=LessonPage.find(:all,:conditions=>{:lesson_id=>"#{params[:lessonid]}"})
+    @lessonpagesbrowse=@lessonpages
     @count=@lessonpages.size
     @questCount=0
     @lessonpages.each do | lesspage|
@@ -101,6 +103,7 @@ class StudentLessonPageController < ApplicationController
    end
    def prevlesson
      @lesson_id=params[:lessonid]
+     @pass=params[:pass]
      if @pass
      @current=params[:current]
      @val= Integer(@current)
@@ -118,4 +121,16 @@ class StudentLessonPageController < ApplicationController
      redirect_to(:action=>"teacherlesson",:lessonid=>"#{@lesson_id}")
      end
    end
+
+   def answers
+    @ans=params[:ans]
+    if @ans
+         @ans.each do |answer |
+         @answer=Answer.new
+         @answer.choice_id=answer
+         @answer.user_id=current_user.id
+         @answer.save
+       end
+end
+end
 end

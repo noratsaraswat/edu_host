@@ -41,6 +41,7 @@ Educrasy::Application.routes.draw do
   get "student_lesson_page/nextlesson"
   get "student_lesson_page/prevlesson"
   get "student_lesson_page/teacherlesson"
+  get "student_lesson_page/answers"
 
   resources :student_details
 

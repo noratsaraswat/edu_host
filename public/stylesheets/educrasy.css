@@ -44,6 +44,7 @@ root {
     border-color: black;
     border-style: solid;
     height: 150px;
+    overflow: auto;
 }
 
 #signup {
@@ -136,4 +137,11 @@ root {
 }
 #videoGap {
     height: 250px;
+}
+.questionImage {
+    border-width: 2px;
+    border-color: black;
+    border-style: solid;
+    height: 150px;
+
 }

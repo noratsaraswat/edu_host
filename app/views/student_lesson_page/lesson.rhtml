@@ -9,7 +9,13 @@
         &nbsp;
       </div>
       <div class="span-19" id="video">
-        <%=render 'video'%>
+       <%if @lessonpagesbrowse[Integer(@current-1)].content_info_id %>
+        <%@contentid= @lessonpagesbrowse[Integer(@current-1)].content_info_id %>
+        <%=render 'data' %>
+        <% else %>
+        <%@questionnaireid= @lessonpagesbrowse[Integer(@current-1)].questionnaire_id %>
+        <%=render 'questionnaire'%>
+        <% end %>
       </div>
       <div class="span-19 last">
       </div>
