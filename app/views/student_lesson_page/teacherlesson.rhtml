@@ -8,7 +8,13 @@
         &nbsp;
       </div>
       <div class="span-19" id="video">
-        <%=render 'video'%>
+       <%if @lessonpagesbrowse[Integer(@current)].content_info_id %>
+        <%@contentid= @lessonpagesbrowse[Integer(@current)].content_info_id %>
+        <%=render 'data' %>
+        <% else %>
+        <%@questionnaireid= @lessonpagesbrowse[Integer(@current)].questionnaire_id %>
+        <%=render 'questionnaire'%>
+        <% end %>
       </div>
       <div class="span-19 last">
       </div>
@@ -25,6 +31,7 @@
     </div>
     <div class="span-3">
      <%=link_button_to "Next", url_for(:action=>"nextlesson",:lessonid=>"#{@lessonclass.lesson_id}",:current=>"#{@current}",:count=>"#{@count}")%>
+
    </div>
     <div class="span-3 last">
     </div>
@@ -33,7 +40,7 @@
        &nbsp;
      </div>
      <div class="span-5">
-       <%=link_button_to "Back to class view", url_for(:back)%>
+       <%=link_button_to "Back to class view", url_for(:action=>"index",:controller=>"teacher_lesson_details",:id=>"#{@lessonclasslessonid}")%>
      </div>
      <div class="span-10 last">
      </div>

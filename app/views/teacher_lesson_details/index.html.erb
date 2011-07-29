@@ -34,6 +34,7 @@ Class View
  <span class="notice2"><%= notice %></span>
  </h3>
   <% if @lesson %>
-  <%= link_button_to "Preview Lesson", url_for(:action=>"teacherlesson",:controller=>"student_lesson_page",:lessonid=>"#{@lesson.lesson.id}")%>
+  <%= link_button_to "Preview Lesson", url_for(:action=>"teacherlesson",:controller=>"student_lesson_page",:lessonid=>"#{@lesson.lesson.id}",:current=>"0")%>
+  <%=link_button_to "Class Performance Page",{:action=>"performance", :controller=>"student_lesson_page",:lessonid=>"#{@lesson.lesson.id}"} %>
   <% end %>
 </div>

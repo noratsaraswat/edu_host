@@ -2,18 +2,18 @@
   Student <%=current_user.name%>  class <%=@classname%>, Lesson <%=@lesson_name%>, <br /> Instructer <%=@instructername%>, code <%= @classcode %>
 <br />
   Total <%=@count%> lesson parts, <%=@questCount%> questionnaries <br />
-  Finished <%=@current%> Parts
+<%=@current +1%> &nbsp; Part
  </div>
   <div class="span-25 last">
       <div class="span-3">
         &nbsp;
       </div>
       <div class="span-19" id="video">
-       <%if @lessonpagesbrowse[Integer(@current-1)].content_info_id %>
-        <%@contentid= @lessonpagesbrowse[Integer(@current-1)].content_info_id %>
+       <%if @lessonpagesbrowse[Integer(@current)].content_info_id %>
+        <%@contentid= @lessonpagesbrowse[Integer(@current)].content_info_id %>
         <%=render 'data' %>
         <% else %>
-        <%@questionnaireid= @lessonpagesbrowse[Integer(@current-1)].questionnaire_id %>
+        <%@questionnaireid= @lessonpagesbrowse[Integer(@current)].questionnaire_id %>
         <%=render 'questionnaire'%>
         <% end %>
       </div>
