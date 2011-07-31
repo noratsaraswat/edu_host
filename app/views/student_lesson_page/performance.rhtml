@@ -36,7 +36,7 @@
           <%@ques=Quest.where(:questionnaire_id=>"#{quest.questionnaire.id}") %>
             <% @ques.each do | que | %>
 
-                     <%@correctanwers=Choice.where(:quest_id=>"#{que.id}",:answer=>1)%>
+                     <%@correctanwers=Choice.where(:quest_id=>"#{que.id}",:answer=>true)%>
                      <%@correctanwerssize=@correctanwers.size%>
                      <%@answers=Answer.where(:user_id=>"#{student.user_id}",:questionnaire_id=>"#{que.questionnaire_id}")%>
                       <% corr=0 %>
