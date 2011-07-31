@@ -151,10 +151,10 @@ class StudentLessonPageController < ApplicationController
                passtwo=0
                @choice=Choice.find(:first,:conditions=>{:id=>"#{Integer(answer)}"})
                @questionid=@choice.quest_id
-               @choice=Choice.where(:quest_id=>"#{Integer(@questionid)}",:answer=>1)
+               @choice=Choice.where(:quest_id=>"#{Integer(@questionid)}",:answer=>true)
 
                  #to check if user clicked more options than that of correct answer
-               @wronganswers=Choice.where(:quest_id=>"#{Integer(@questionid)}",:answer=>0)
+               @wronganswers=Choice.where(:quest_id=>"#{Integer(@questionid)}",:answer=>false)
                #finished to check if user clicked more options than that of correct answer
                #to avoid second time same question evaluation
                 num=0
