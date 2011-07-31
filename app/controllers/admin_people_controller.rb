@@ -6,6 +6,7 @@ class AdminPeopleController < ApplicationController
   def index
     @admin_people = AdminPerson.all
     @role = Role.new
+     @student_detail = StudentDetail.new
     respond_to do |format|
       format.html # index.html.erb
       format.xml  { render :xml => @admin_people }

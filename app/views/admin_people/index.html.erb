@@ -19,3 +19,15 @@
 <%#=link_to "Add Content developers/Administrators",{:action=>'new',:controller=>"roles"}%>
 
 </div>
+
+<div class="span-14">
+  <br />
+  <h3>Assign student to class </h3>
+  <div class="lessonBorder">
+    <%=render :template=>'student_details/new'%>
+  </div>
+</div>
+<div class="span-9 last">
+  <br /><br /><br /><br />
+<%=link_button_to "Show Student Class Details",url_for(:action=>"index", :controller=>"student_details") %>
+</div>

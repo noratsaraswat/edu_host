@@ -44,7 +44,9 @@ class StudentDetailsController < ApplicationController
 
     respond_to do |format|
       if @student_detail.save
-        format.html { redirect_to(@student_detail, :notice => 'Student detail was successfully created.') }
+        #format.html { redirect_to(@student_detail, :notice => 'Student detail was successfully created.') }
+        flash[:notice]="Student #{@student_detail.user.name} assigned to class #{@student_detail.class_detail.classname}"
+        format.html { redirect_to(:controller =>"admin_people",:action =>"index") }
         format.xml  { render :xml => @student_detail, :status => :created, :location => @student_detail }
       else
         format.html { render :action => "new" }
@@ -60,7 +62,8 @@ class StudentDetailsController < ApplicationController
 
     respond_to do |format|
       if @student_detail.update_attributes(params[:student_detail])
-        format.html { redirect_to(@student_detail, :notice => 'Student detail was successfully updated.') }
+        #format.html { redirect_to(@student_detail, :notice => 'Student detail was successfully updated.') }
+        format.html { redirect_to(:action=>"index", :controller=>"student_details") }
         format.xml  { head :ok }
       else
         format.html { render :action => "edit" }

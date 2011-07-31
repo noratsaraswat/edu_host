@@ -7,6 +7,7 @@
   <tbody>
     <%k=0%>
     <%@questionnaire.quests.each do |question| %>
+    <%= hidden_field_tag "questionnaire_id",question.questionnaire_id%>
     <tr>
       <td>
       <%#=  k=k+1 %> &nbsp;<%#=link_to "#{question.question}",{:action=>"edit",:controller=>"quests",:id=>"#{question.id}"} %>

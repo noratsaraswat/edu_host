@@ -139,6 +139,7 @@ class StudentLessonPageController < ApplicationController
                   @answer=Answer.new
                   @answer.choice_id=answer
                   @answer.user_id=current_user.id
+                  @answer.questionnaire_id=params[:questionnaire_id]
                   @answer.save
               end
              questions=[]
@@ -203,10 +204,10 @@ class StudentLessonPageController < ApplicationController
                        end
                     end
                     if k>=1
-                       if @correct >0
+                       if @correct >0 and j>0
                          @correct=@correct-1
                        end
-                     end
+                    end
                  end
                # to check if user clicked more options than that of correct answer
           end
@@ -214,12 +215,18 @@ class StudentLessonPageController < ApplicationController
   end
 
    def performance
-    @lessonclass=LessonClass.find(:first,:conditions=>{:lesson_id=>"#{params[:lessonid]}"} )
+    @correctanwerssize=0
+    @lessonclass=LessonClass.find(:first,:conditions=>{:lesson_id=>"#{params[:lessonid]}",:class_detail_id=>"#{params[:classdetailsid]}"} )
     @lessonclasslessonid=@lessonclass.lesson_id
     @lesson_name=@lessonclass.lesson.lessonName
     @classname=@lessonclass.class_detail.classname
     @classcode=@lessonclass.unique_classid
-     @instructer=User.find(:first,:conditions=>{:id=>"#{@lessonclass.teacherid}"})
+    @instructer=User.find(:first,:conditions=>{:id=>"#{@lessonclass.teacherid}"})
     @instructername=@instructer.name
+
+     @studentdetails=StudentDetail.where(:class_detail_id=>"#{params[:classdetailsid]}")
+     @lessonquestions=LessonPage.find_by_sql("select * from lesson_pages where lesson_id=#{@lessonclasslessonid} and questionnaire_id is not null")
+
+
    end
 end

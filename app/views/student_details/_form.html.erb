@@ -11,19 +11,17 @@
     </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :name %><br />
-    <%= f.text_field :name %>
-  </div>
-  <div class="field">
-    <%= f.label :classname %><br />
-    <%= f.text_field :classname %>
-  </div>
-  <div class="field">
-    <%= f.label :standard %><br />
-    <%= f.text_field :standard %>
-  </div>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
+<span class="field">
+    <%= f.label "Student" %>&nbsp;&nbsp;
+    <%= f.select(:user_id, Role.where(:name=>"student").collect {|c| [ c.user.name, c.id ] })%>
+  </span>&nbsp;&nbsp;
+<span class="field">
+    <%= f.label "Class" %> &nbsp;&nbsp;
+    <%= f.select(:class_detail_id, ClassDetail.find(:all).collect {|c| [ c.classname, c.id ] })%>
+  </span>
+
+&nbsp;&nbsp;
+  <span class="actions">
+    <%= f.submit "Assign"%>
+  </span>
 <% end %>
