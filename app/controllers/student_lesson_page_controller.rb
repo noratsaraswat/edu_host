@@ -140,7 +140,11 @@ class StudentLessonPageController < ApplicationController
                   @answer.choice_id=answer
                   @answer.user_id=current_user.id
                   @answer.questionnaire_id=params[:questionnaire_id]
-                  @answer.save
+                  if @answer.save
+                    @saved=true
+                  else
+                   @saved=false
+                  end
               end
              questions=[]
              wrongans=[]
