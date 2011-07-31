@@ -217,6 +217,7 @@ class StudentLessonPageController < ApplicationController
    def performance
     @correctanwerssize=0
     @lessonclass=LessonClass.find(:first,:conditions=>{:lesson_id=>"#{params[:lessonid]}",:class_detail_id=>"#{params[:classdetailsid]}"} )
+    if @lessonclass
     @lessonclasslessonid=@lessonclass.lesson_id
     @lesson_name=@lessonclass.lesson.lessonName
     @classname=@lessonclass.class_detail.classname
@@ -227,6 +228,6 @@ class StudentLessonPageController < ApplicationController
      @studentdetails=StudentDetail.where(:class_detail_id=>"#{params[:classdetailsid]}")
      @lessonquestions=LessonPage.find_by_sql("select * from lesson_pages where lesson_id=#{@lessonclasslessonid} and questionnaire_id is not null")
 
-
+    end
    end
 end
