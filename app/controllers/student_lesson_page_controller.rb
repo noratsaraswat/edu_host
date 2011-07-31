@@ -1,6 +1,6 @@
 class StudentLessonPageController < ApplicationController
   def index
-  @studentlesson=StudentLesson.find(:all)
+  @studentlesson=StudentLesson.where(:user_id=>"#{current_user.id}")
   end
   def find
     @lessonclass=LessonClass.find(:first,:conditions=>{:unique_classid=>"#{params[:code]}"} )
