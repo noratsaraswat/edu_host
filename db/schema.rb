@@ -10,7 +10,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20110731115026) do
+ActiveRecord::Schema.define(:version => 20110728085507) do
 
   create_table "admin_people", :force => true do |t|
     t.integer  "userID"
@@ -36,28 +36,21 @@ ActiveRecord::Schema.define(:version => 20110731115026) do
   create_table "answers", :force => true do |t|
     t.integer  "choice_id"
     t.integer  "user_id"
+    t.integer  "questionnaire_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "questionnaire_id"
   end
 
   create_table "choices", :force => true do |t|
     t.string   "ChoiceAnswers"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "quest_id"
     t.boolean  "answer"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "class_details", :force => true do |t|
     t.string   "classname"
-    t.datetime "created_at"
-    t.datetime "updated_at"
-  end
-
-  create_table "content_data", :force => true do |t|
-    t.string   "name"
-    t.string   "path"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -76,10 +69,10 @@ ActiveRecord::Schema.define(:version => 20110731115026) do
   end
 
   create_table "developers", :force => true do |t|
+    t.integer  "userid"
     t.integer  "lessonID"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "userid"
   end
 
   create_table "developers_lessons", :id => false, :force => true do |t|
@@ -106,22 +99,22 @@ ActiveRecord::Schema.define(:version => 20110731115026) do
   end
 
   create_table "lesson_pages", :force => true do |t|
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "lesson_id"
     t.integer  "content_info_id"
     t.integer  "questionnaire_id"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
-  create_table "lessons", :id => false, :force => true do |t|
-    t.integer  "id",                         :null => false
-    t.string   "lessonName", :default => "", :null => false
+  create_table "lessons", :force => true do |t|
+    t.string   "lessonName"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
 
   create_table "questionnaires", :force => true do |t|
     t.string   "questionnaireName"
+    t.integer  "questionID"
     t.datetime "created_at"
     t.datetime "updated_at"
   end
@@ -129,31 +122,31 @@ ActiveRecord::Schema.define(:version => 20110731115026) do
   create_table "quests", :force => true do |t|
     t.string   "question"
     t.string   "image"
+    t.integer  "questionnaire_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "questionnaire_id"
   end
 
   create_table "roles", :force => true do |t|
     t.string   "name"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
   end
 
   create_table "student_details", :force => true do |t|
+    t.string   "user_id"
+    t.string   "class_detail_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "class_detail_id"
   end
 
   create_table "student_lessons", :force => true do |t|
     t.integer  "lesson_id"
-    t.datetime "created_at"
-    t.datetime "updated_at"
     t.integer  "user_id"
     t.integer  "finished"
+    t.datetime "created_at"
+    t.datetime "updated_at"
   end
 
   create_table "students", :force => true do |t|
@@ -178,10 +171,10 @@ ActiveRecord::Schema.define(:version => 20110731115026) do
   end
 
   create_table "teacher_lessons", :force => true do |t|
+    t.integer  "lesson_id"
+    t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "user_id"
-    t.integer  "lesson_id"
   end
 
   create_table "teachers", :force => true do |t|
